@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
         { Ingredient.whiteRice, "Rice" }, { Ingredient.kelp, "Kelp" }
     };
     public GameObject meter;
+    Score scoreScript;
 
 
     Order currentOrder;
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour {
         advancePlates();
         advancePlates();
         advancePlates();
+        scoreScript = FindObjectOfType<Score>();
     }
 
     void Update() {
@@ -82,12 +84,14 @@ public class GameManager : MonoBehaviour {
         }
         int foodNum = getScoredFoodItems();
         float timeMultiplier = Mathf.Log(timeLeft);
-        int finalScore = (int) (foodNum * timeMultiplier);
+        int finalScore = (int) (foodNum * timeMultiplier * 1000);
         return finalScore;
     }
 
     public void scorePlate() {
-        currentScore += getScore();
+        int score = getScore();
+        currentScore += score;
+        scoreScript.addScore(score);
     }
 
     //ORDERS----------------------------------------------------
@@ -121,6 +125,11 @@ public class GameManager : MonoBehaviour {
         }
         print(i + " being added to (" + totalOrder + ")");
         return currentOrder.addIngredient(i);
+    }
+
+    public void finishOrder() {
+        scorePlate();
+        advancePlates();
     }
 
     //PLATES--------------------------------------------
