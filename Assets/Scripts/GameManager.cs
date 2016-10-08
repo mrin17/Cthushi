@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour {
         Ingredient.calimari, Ingredient.tuna, Ingredient.shrimp,
         Ingredient.ginger, Ingredient.wasabi, Ingredient.soySauce,
         Ingredient.whiteRice, Ingredient.kelp };
+    public static Dictionary<Ingredient, string> ingredientsToSpriteNames = new Dictionary<Ingredient, string>() {
+        { Ingredient.calimari, "Calimari" }, { Ingredient.tuna, "Tuna" }, { Ingredient.shrimp, "Shrimp" },
+        { Ingredient.ginger, "Ginger" }, { Ingredient.wasabi, "Wasabi" }, { Ingredient.soySauce, "SoySauce" },
+        { Ingredient.whiteRice, "Rice" }, { Ingredient.kelp, "Kelp" }
+    };
     public GameObject meter;
 
 
