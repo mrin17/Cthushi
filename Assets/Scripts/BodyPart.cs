@@ -41,7 +41,7 @@ public class BodyPart : MonoBehaviour {
                         timer = THROW_AWAY_TIME;
                         gm.anims[index].SetBool("ButtonPressed?", false);
                     }
-                    foodHolding = (GameObject)Instantiate(Resources.Load("food"), transform.position + new Vector3(0, -1, 0), Quaternion.identity);
+                    foodHolding = (GameObject)Instantiate(Resources.Load("food"), transform.position + new Vector3(0, 1, 0), Quaternion.identity);
                     foodHolding.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(
                         GameManager.ingredientsToSpriteNames[GameManager.indexToIngredient[index]]);
                     //TODO - make it throw the food towards the plate

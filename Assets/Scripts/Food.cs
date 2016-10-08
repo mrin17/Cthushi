@@ -4,7 +4,7 @@ using System.Collections;
 public class Food : MonoBehaviour {
 
     bool gettingThrown = false;
-    float moveSpeed = .5f;
+    float moveSpeed = .25f;
     Vector3 locToMoveTowards;
 
     // Update is called once per frame
