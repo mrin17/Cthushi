@@ -19,6 +19,12 @@ public class CthulhuScript : MonoBehaviour {
 	
 	}
 
+    public void finishPlate() {
+        if (!isGrabbingFood()) {
+            //TODO - do something idk for now
+        }
+    }
+
     public void grabFood(int whichTentacle) {
         if (!isGrabbingFood()) {
             tentacles[whichTentacle].grabFood();
