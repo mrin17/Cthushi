@@ -63,7 +63,8 @@ public class BodyPart : MonoBehaviour {
         }
 	}
 
-    public void grabFood() {
+    public void grabFood()
+    {
         currentState = State.grabbing;
         timer = GRAB_TIME;
         //TODO - enable tentacle animation
@@ -74,9 +75,9 @@ public class BodyPart : MonoBehaviour {
         {
             if (gm.getCurrentOrder().getCurrentPlate().Contains(gm.getCurrentOrder().getIngredientList()[x]))
             {
-                for (int y = 1; y < gm.meter.transform.childCount - 1; y++)
+                for (int y = 0; y < gm.meter.transform.childCount - 1; y++)
                 {
-                    gm.meter.transform.GetChild(y).GetComponent<TextMesh>().text = gm.meter.transform.GetChild(y + 1).GetComponent<TextMesh>().text;
+                    gm.meter.transform.GetChild(y).GetComponent<SpriteRenderer>().sprite = gm.meter.transform.GetChild(y + 1).GetComponent<SpriteRenderer>().sprite;
                 }
             }
         }

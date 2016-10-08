@@ -61,11 +61,11 @@ public class GameManager : MonoBehaviour {
         Debug.Log(totalOrder);
         for (int x = 0; x < currentOrder.getIngredientList().Count; x++)
         {
-            meter.transform.GetChild(x + 1).GetComponent<TextMesh>().text = currentOrder.getIngredientList()[x].ToString();
+            meter.transform.GetChild(x).GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(ingredientsToSpriteNames[currentOrder.getIngredientList()[x]]);
         }
         for (int x = currentOrder.getIngredientList().Count + 1; x < meter.transform.childCount; x++)
         {
-            meter.transform.GetChild(x).GetComponent<TextMesh>().text = "";
+            meter.transform.GetChild(x).GetComponent<SpriteRenderer>().sprite = null;
         }
     }
 
