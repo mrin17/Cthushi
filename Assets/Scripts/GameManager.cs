@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour {
 
     //For easy, medium, hard, and unlimited
     public List<int> highScores = new List<int>() { 0, 0, 0, 0 };
+    int clientsFed = 0;
+    int maxClientsThisLevel = 10;
+    int difficulty = 1;
 
     Order currentOrder;
 
@@ -23,7 +26,7 @@ public class GameManager : MonoBehaviour {
 
     public void getNewOrder() {
         //TODO - set order to be something
-        currentOrder = new Order(new List<Ingredient>() { Ingredient.tuna, Ingredient.wasabi, Ingredient.whiteRice });
+        currentOrder = OrderCreator.getRandomOrder(difficulty, clientsFed, maxClients);
     }
 
     public bool addToOrder(Ingredient i) {
