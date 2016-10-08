@@ -32,11 +32,18 @@ public class BodyPart : MonoBehaviour {
         } else {
             switch (currentState) {
                 case State.grabbing:
-                    currentState = State.placing;
-                    //TODO - create food prefab on tentacle
-                    timer = DROP_ON_PLATE_TIME;
+                    if (grabbingCorrectFood) {
+                        currentState = State.placing;
+                        //TODO - create food prefab on tentacle
+                        timer = DROP_ON_PLATE_TIME;
+                    } else {
+                        currentState = State.throwing;
+                        //TODO - do whatever he does when he's throwing
+                        timer = THROW_AWAY_TIME;
+                    }
                     break;
                 case State.placing:
+                case State.throwing:
                     currentState = State.cooldown;
                     //TODO drop food prefab on plate
                     timer = COOLDOWN_TIME;
