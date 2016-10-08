@@ -7,9 +7,10 @@ public class InputManager : MonoBehaviour {
     public List<GameObject> items = new List<GameObject>();
     public List<bool> downs = new List<bool>();
     List<KeyCode> keys = new List<KeyCode>();
+    CthulhuScript cs;
     // Use this for initialization
     void Awake () {
-
+        cs = FindObjectOfType<CthulhuScript>();
         for (int x = 0; x < 8; x++) {
             downs.Add(false);
         }
@@ -29,6 +30,7 @@ public class InputManager : MonoBehaviour {
         {
             if (Input.GetKeyDown(keys[x]) && items[x].transform.position.y >= 3)
             {
+                cs.grabFood(x);
                 downs[x] = true;
             }
             if (downs[x] && items[x].transform.position.y > -3)
