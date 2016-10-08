@@ -34,18 +34,21 @@ public class BodyPart : MonoBehaviour {
                 case State.grabbing:
                     if (grabbingCorrectFood) {
                         currentState = State.placing;
-                        //TODO - create food prefab on tentacle
                         timer = DROP_ON_PLATE_TIME;
                     } else {
                         currentState = State.throwing;
                         //TODO - do whatever he does when he's throwing
                         timer = THROW_AWAY_TIME;
                     }
+                    foodHolding = (GameObject)Instantiate(Resources.Load("food"), transform.position + new Vector3(0, -1, 0), Quaternion.identity);
+                    foodHolding.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Shrimp");
                     break;
                 case State.placing:
                 case State.throwing:
                     currentState = State.cooldown;
                     //TODO drop food prefab on plate
+                    gm.dropFoodOnPlate(foodHolding);
+                    foodHolding = null;
                     timer = COOLDOWN_TIME;
                     break;
                 case State.cooldown:

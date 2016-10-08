@@ -91,6 +91,10 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void dropFoodOnPlate(GameObject food) {
+        currentPlates[2].AddObjectToPlate(food);
+    }
+
     public static bool isRice(Ingredient i) { return rice.Contains(i); }
     public static bool isMeat(Ingredient i) { return meats.Contains(i); }
     public static bool isCondiment(Ingredient i) { return condiments.Contains(i); }
