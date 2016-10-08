@@ -13,11 +13,11 @@ public class Plate : MonoBehaviour {
     float movementSpeedOutDoor = .5f;
     PlateState currentState = PlateState.spawn;
 
-    const float H_OFFSET = .5f;
-    const float V_OFFSET = .3f;
+    const float H_OFFSET = .25f;
+    const float V_OFFSET = .2f;
     static List<Vector3> positions = new List<Vector3>() {
         new Vector3(-H_OFFSET, V_OFFSET, 0), new Vector3(H_OFFSET, V_OFFSET, 0),
-        new Vector3(-H_OFFSET, V_OFFSET, 0), new Vector3(H_OFFSET, V_OFFSET, 0) };
+        new Vector3(-H_OFFSET, -V_OFFSET, 0), new Vector3(H_OFFSET, -V_OFFSET, 0) };
     List<GameObject> objectsOnPlate;
 
 
@@ -39,6 +39,7 @@ public class Plate : MonoBehaviour {
     public void AddObjectToPlate(GameObject obj) {
         int whichLoc = objectsOnPlate.Count % 4;
         obj.transform.position = transform.position + positions[whichLoc];
+        obj.transform.parent = transform;
         objectsOnPlate.Add(obj);
     }
 
