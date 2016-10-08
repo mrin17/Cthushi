@@ -37,7 +37,6 @@ public class BodyPart : MonoBehaviour {
                         timer = DROP_ON_PLATE_TIME;
                     } else {
                         currentState = State.throwing;
-                        //TODO - do whatever he does when he's throwing
                         timer = THROW_AWAY_TIME;
                     }
                     foodHolding = (GameObject)Instantiate(Resources.Load("food"), transform.position + new Vector3(0, -1, 0), Quaternion.identity);
@@ -45,11 +44,15 @@ public class BodyPart : MonoBehaviour {
                         GameManager.ingredientsToSpriteNames[GameManager.indexToIngredient[index]]);
                     break;
                 case State.placing:
-                case State.throwing:
-                    currentState = State.cooldown;
-                    //TODO drop food prefab on plate
                     gm.dropFoodOnPlate(foodHolding);
                     foodHolding = null;
+                    currentState = State.cooldown;
+                    timer = COOLDOWN_TIME;
+                    break;
+                case State.throwing:
+                    foodHolding.GetComponent<Food>().throwFood();
+                    foodHolding = null;
+                    currentState = State.cooldown;
                     timer = COOLDOWN_TIME;
                     break;
                 case State.cooldown:
