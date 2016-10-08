@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
 
 	void Start () {
         DontDestroyOnLoad(this);
+        getNewOrder();
 	}
 
     public void getNewOrder() {
@@ -33,7 +34,8 @@ public class GameManager : MonoBehaviour {
         currentOrder = OrderCreator.getRandomOrder(difficulty, clientsFed, maxClientsThisLevel);
     }
 
-    public bool addToOrder(Ingredient i) {
+    public bool addToOrder(Ingredient i)
+    {
         return currentOrder.addIngredient(i);
     }
 	

@@ -4,13 +4,15 @@ using System.Collections.Generic;
 
 public class InputManager : MonoBehaviour {
 
-    public List<GameObject> items = new List<GameObject>();
+    public List<BodyPart> items = new List<BodyPart>();
     public List<bool> downs = new List<bool>();
     List<KeyCode> keys = new List<KeyCode>();
     CthulhuScript cs;
+    GameManager gm;
     // Use this for initialization
     void Awake () {
         cs = FindObjectOfType<CthulhuScript>();
+        gm = FindObjectOfType<GameManager>();
         for (int x = 0; x < 8; x++) {
             downs.Add(false);
         }

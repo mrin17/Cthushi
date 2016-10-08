@@ -5,9 +5,14 @@ using System.Collections.Generic;
 public class CthulhuScript : MonoBehaviour {
 
     List<BodyPart> tentacles;
+    InputManager i;
 
 	void Start () {
-	
+        tentacles = new List<BodyPart>();
+        i = FindObjectOfType<InputManager>();
+        for (int x = 0; x < i.items.Count; x++) {
+            tentacles.Add(i.items[x]);
+        }
 	}
 	
 	void Update () {
