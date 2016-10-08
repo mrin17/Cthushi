@@ -25,5 +25,9 @@ public class GameManager : MonoBehaviour {
         //TODO - set order to be something
         currentOrder = new Order(new List<Ingredient>() { Ingredient.tuna, Ingredient.wasabi, Ingredient.whiteRice });
     }
+
+    public bool addToOrder(Ingredient i) {
+        return currentOrder.addIngredient(i);
+    }
 	
 }
