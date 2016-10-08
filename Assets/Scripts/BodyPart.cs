@@ -35,12 +35,11 @@ public class BodyPart : MonoBehaviour {
                     if (grabbingCorrectFood) {
                         currentState = State.placing;
                         timer = DROP_ON_PLATE_TIME;
-                        gm.anims[index].SetBool("ButtonPressed?", false);
                     } else {
                         currentState = State.throwing;
                         timer = THROW_AWAY_TIME;
-                        gm.anims[index].SetBool("ButtonPressed?", false);
                     }
+                    gm.anims[index].SetBool("ButtonPressed?", true);
                     foodHolding = (GameObject)Instantiate(Resources.Load("food"), transform.position + new Vector3(0, 1, 0), Quaternion.identity);
                     foodHolding.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(
                         GameManager.ingredientsToSpriteNames[GameManager.indexToIngredient[index]]);
@@ -54,6 +53,7 @@ public class BodyPart : MonoBehaviour {
                     timer = COOLDOWN_TIME;
                     break;
                 case State.throwing:
+                    gm.anims[index].SetBool("ButtonPressed?", false);
                     foodHolding.GetComponent<Food>().throwFood();
                     foodHolding = null;
                     //TODO - maybe he does his knife animation just to push the food off the plate?
@@ -61,6 +61,7 @@ public class BodyPart : MonoBehaviour {
                     timer = COOLDOWN_TIME;
                     break;
                 case State.cooldown:
+                    gm.anims[index].SetBool("ButtonPressed?", false);
                     currentState = State.neutral;
                     timer = 0;
                     break;
@@ -72,7 +73,7 @@ public class BodyPart : MonoBehaviour {
         currentState = State.grabbing;
         timer = GRAB_TIME;
         Ingredient food = GameManager.indexToIngredient[index];
-        gm.anims[index].SetBool("ButtonPressed?", true);
+        //gm.anims[index].SetBool("ButtonPressed?", true);
         grabbingCorrectFood = gm.addToOrder(food);
         if (grabbingCorrectFood)
             {
