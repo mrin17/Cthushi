@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour {
     // - Under NUM_FOOD_ITEMS * SECONDS_PER_FOOD_ITEM * 2 seconds = Meh
     // - Under NUM_FOOD_ITEMS * SECONDS_PER_FOOD_ITEM * 3 seconds = Bad
     // - Beyond Bad - They leave
-    //Maximum number for NUM_FOOD_ITEMS = 8
+    const int MAX_FOOD_ITEMS_TRACKED_FOR_SCORE = 7;
     const int SECONDS_PER_FOOD_ITEM = 1;
     float timeSpentOnOrder = 0;
 
@@ -64,7 +64,16 @@ public class GameManager : MonoBehaviour {
     //SCORING----------------------------------------------------
     //Best satisfaction is 0, 1 is meh, 2 is Bad, 3 is they leave
     public int getSatisfaction() {
-        return (int) (timeSpentOnOrder / currentOrder.getIngredientList().Count * SECONDS_PER_FOOD_ITEM);
+        return (int) (timeSpentOnOrder / getScoredFoodItems() * SECONDS_PER_FOOD_ITEM);
+    }
+
+    public int getScoredFoodItems() {
+        return Mathf.Min(currentOrder.getIngredientList().Count, MAX_FOOD_ITEMS_TRACKED_FOR_SCORE);
+    }
+
+    public int getScore() {
+        int foodNum = getScoredFoodItems();
+        return 0; //TODO fix
     }
 
     //ORDERS----------------------------------------------------
