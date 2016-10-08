@@ -80,12 +80,12 @@ public class GameManager : MonoBehaviour {
 
     public int getScore() {
         float timeLeft = getTimeRemaining();
-        if (timeLeft <= 0) {
+        if (timeLeft <= 0 || !currentOrder.isCompleted()) {
             return 0;
         }
         int foodNum = getScoredFoodItems();
-        float timeMultiplier = Mathf.Log(timeLeft);
-        int finalScore = (int) (foodNum * timeMultiplier * 1000);
+        float timeMultiplier = Mathf.Log(timeLeft + 1); //so the score is always positive
+        int finalScore = (int)(foodNum * timeMultiplier * 1000) * 10; //so it always ends in a 0
         return finalScore;
     }
 
@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviour {
     public void finishOrder() {
         scorePlate();
         advancePlates();
+        getNewOrder();
     }
 
     //PLATES--------------------------------------------
