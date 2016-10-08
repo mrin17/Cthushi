@@ -24,7 +24,7 @@ public class CthulhuScript : MonoBehaviour {
     public void finishPlate() {
         if (!isGrabbingFood()) {
             //TODO - animation for boxing up the order. Call advancePlates after this
-            gm.advancePlates();
+            //gm.advancePlates();
         }
     }
 
