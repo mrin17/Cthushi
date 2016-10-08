@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public enum Ingredient { tofu, tuna, crab, ginger, wasabi, soySauce, whiteRice, brownRice }
+public enum Ingredient { calimari, tuna, shrimp, ginger, wasabi, soySauce, whiteRice, kelp }
 
 public class GameManager : MonoBehaviour {
 
     //General list of ingredients, this will be the ordering of the ingredients on the counter
     //Can be changed to fit design
-    public static List<Ingredient> meats = new List<Ingredient>() { Ingredient.tofu, Ingredient.tuna, Ingredient.crab };
+    public static List<Ingredient> meats = new List<Ingredient>() { Ingredient.calimari, Ingredient.tuna, Ingredient.shrimp };
     public static List<Ingredient> condiments = new List<Ingredient>() { Ingredient.ginger, Ingredient.wasabi, Ingredient.soySauce };
-    public static List<Ingredient> rice = new List<Ingredient>() { Ingredient.whiteRice, Ingredient.brownRice };
+    public static List<Ingredient> rice = new List<Ingredient>() { Ingredient.whiteRice, Ingredient.kelp };
     public static List<Ingredient> indexToIngredient = new List<Ingredient>() {
-        Ingredient.tofu, Ingredient.tuna, Ingredient.crab,
+        Ingredient.calimari, Ingredient.tuna, Ingredient.shrimp,
         Ingredient.ginger, Ingredient.wasabi, Ingredient.soySauce,
-        Ingredient.whiteRice, Ingredient.brownRice };
+        Ingredient.whiteRice, Ingredient.kelp };
     public GameObject meter;
 
 
