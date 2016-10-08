@@ -23,8 +23,8 @@ public class OrderCreator {
             ingredients.Add(GameManager.indexToIngredient[nextIngredient]);
         }
 
-        //TODO - if doesnt contain a rice, add rice
-        //TODO - if doesnt contain a meat, add meat (and make sure to not overwrite the rice added...)
+        //TODO - if doesnt contain a rice, add rice (dont overwrite any meat added unless necessary)
+        //TODO - if doesnt contain a meat, add meat (dont overwrite any rice added unless necessary)
 
         return new Order(ingredients);
     }
