@@ -63,23 +63,19 @@ public class BodyPart : MonoBehaviour {
         }
 	}
 
-    public void grabFood()
-    {
+    public void grabFood() {
         currentState = State.grabbing;
         timer = GRAB_TIME;
         //TODO - enable tentacle animation
         Ingredient food = GameManager.indexToIngredient[index];
         //TODO - add food to current Order, bool result returns whether the ingredient was correct or not
         grabbingCorrectFood = gm.addToOrder(food);
-        for (int x = 0; x < gm.getCurrentOrder().getCurrentPlate().Count; x++)
-        {
-            if (gm.getCurrentOrder().getCurrentPlate().Contains(gm.getCurrentOrder().getIngredientList()[x]))
+        if (grabbingCorrectFood)
             {
                 for (int y = 0; y < gm.meter.transform.childCount - 1; y++)
                 {
                     gm.meter.transform.GetChild(y).GetComponent<SpriteRenderer>().sprite = gm.meter.transform.GetChild(y + 1).GetComponent<SpriteRenderer>().sprite;
                 }
-            }
         }
     }
 
