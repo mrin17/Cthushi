@@ -52,7 +52,6 @@ public class Plate : MonoBehaviour {
     public void MoveForward() {
         switch (currentState) {
             case PlateState.queue:
-                Debug.Log("SET TO CENTER");
                 currentState = PlateState.center;
                 break;
             case PlateState.center:
@@ -63,7 +62,6 @@ public class Plate : MonoBehaviour {
                 break;
             case PlateState.spawn:
             default:
-                Debug.Log("SET TO QUEUE");
                 currentState = PlateState.queue;
                 break;
         }
