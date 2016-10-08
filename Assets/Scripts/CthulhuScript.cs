@@ -6,9 +6,11 @@ public class CthulhuScript : MonoBehaviour {
 
     List<BodyPart> tentacles;
     InputManager i;
+    GameManager gm;
 
 	void Start () {
         tentacles = new List<BodyPart>();
+        gm = FindObjectOfType<GameManager>();
         i = FindObjectOfType<InputManager>();
         for (int x = 0; x < i.items.Count; x++) {
             tentacles.Add(i.items[x]);
@@ -21,7 +23,8 @@ public class CthulhuScript : MonoBehaviour {
 
     public void finishPlate() {
         if (!isGrabbingFood()) {
-            //TODO - do something idk for now
+            //TODO - animation for boxing up the order. Call advancePlates after this
+            gm.advancePlates();
         }
     }
 

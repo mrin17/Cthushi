@@ -23,10 +23,17 @@ public class GameManager : MonoBehaviour {
     int difficulty = 1;
 
     Order currentOrder;
+    //in the order of spawn, queue, center (one we are working on), and out the door
+    //So current plate is currentPlates[2]
+    List<Plate> currentPlates;
 
 	void Start () {
         DontDestroyOnLoad(this);
         getNewOrder();
+        currentPlates = new List<Plate>();
+        advancePlates();
+        advancePlates();
+        advancePlates();
 	}
 
     public Order getCurrentOrder() {
@@ -51,6 +58,18 @@ public class GameManager : MonoBehaviour {
         }
         print(i + " being added to (" + totalOrder + ")");
         return currentOrder.addIngredient(i);
+    }
+
+    public void advancePlates() {
+        //Moves all the plates forward
+        foreach(Plate p in currentPlates) {
+            p.MoveForward();
+        }
+        GameObject plate = (GameObject)Instantiate(Resources.Load("Plate"));
+        currentPlates.Insert(0, plate.GetComponent<Plate>());
+        if (currentPlates.Count > 4) {
+            currentPlates.RemoveAt(4);
+        }
     }
 	
     public static bool isRice(Ingredient i) { return rice.Contains(i); }

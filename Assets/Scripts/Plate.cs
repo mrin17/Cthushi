@@ -3,20 +3,36 @@ using System.Collections.Generic;
 
 public class Plate : MonoBehaviour {
 
-    static Vector3 spawnPosition = new Vector3(0, 0, 0);
-    static Vector3 queuePosition = new Vector3(0, 0, 0);
-    static Vector3 centerPosition = new Vector3(0, 0, 0);
-    static Vector3 outTheDoorPosition = new Vector3(0, 0, 0);
+    enum PlateState { spawn, queue, center, outTheDoor };
 
+    Vector3 spawnPosition = new Vector3(-6, -3, 0);
+    Vector3 queuePosition = new Vector3(-3, -3, 0);
+    Vector3 centerPosition = new Vector3(0, -3, 0);
+    Vector3 outTheDoorPosition = new Vector3(8, -3, 0);
+    float movementSpeed = .25f;
+    float movementSpeedOutDoor = .5f;
+    PlateState currentState = PlateState.spawn;
+
+    const float H_OFFSET = .5f;
+    const float V_OFFSET = .3f;
     static List<Vector3> positions = new List<Vector3>() {
-        new Vector3(-5, 5, 0), new Vector3(5, 5, 0),
-        new Vector3(-5, -5, 0), new Vector3(5, -5, 0) };
+        new Vector3(-H_OFFSET, V_OFFSET, 0), new Vector3(H_OFFSET, V_OFFSET, 0),
+        new Vector3(-H_OFFSET, V_OFFSET, 0), new Vector3(H_OFFSET, V_OFFSET, 0) };
     List<GameObject> objectsOnPlate;
 
-    // Use this for initialization
+
     void Start() {
         objectsOnPlate = new List<GameObject>();
         transform.position = spawnPosition;
+    }
+
+    void Update() {
+        float s = movementSpeed;
+        if (currentState == PlateState.outTheDoor) {
+            s = movementSpeedOutDoor;
+        }
+        Vector3 newPos = Vector3.MoveTowards(transform.position, getTargetPosition(), s);
+        transform.position = newPos;
     }
 
     //repeats the first four locations
@@ -33,17 +49,37 @@ public class Plate : MonoBehaviour {
         objectsOnPlate = new List<GameObject>();
     }
 	
-    //Movement methods that move the plate to various locations
-	public void MoveToQueue() {
-
+    public void MoveForward() {
+        switch (currentState) {
+            case PlateState.queue:
+                Debug.Log("SET TO CENTER");
+                currentState = PlateState.center;
+                break;
+            case PlateState.center:
+                currentState = PlateState.outTheDoor;
+                break;
+            case PlateState.outTheDoor:
+                Destroy(gameObject);
+                break;
+            case PlateState.spawn:
+            default:
+                Debug.Log("SET TO QUEUE");
+                currentState = PlateState.queue;
+                break;
+        }
     }
 
-    //plate currently working on
-    public void MoveToCenter() {
-
-    }
-
-    public void MoveOutDoor() {
-
+    Vector3 getTargetPosition() {
+        switch (currentState) {
+            case PlateState.queue:
+                return queuePosition;
+            case PlateState.center:
+                return centerPosition;
+            case PlateState.outTheDoor:
+                return outTheDoorPosition;
+            case PlateState.spawn:
+            default:
+                return spawnPosition;
+        }
     }
 }
