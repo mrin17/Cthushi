@@ -1,9 +1,14 @@
 fileFormatVersion: 2
 guid: 09f9524b9087e90409b952cf48ed5870
-timeCreated: 1475958653
+timeCreated: 1475960873
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: CTH 2 anim_0
+    21300002: CTH 2 anim_1
+    21300004: CTH 2 anim_2
+    21300006: CTH 2 anim_3
+    21300008: CTH 2 anim_4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,7 +43,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,7 +56,72 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: CTH 2 anim_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 182
+        width: 273
+        height: 118
+      alignment: 9
+      pivot: {x: 0.9204047, y: 0.60572076}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CTH 2 anim_1
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 14
+        width: 255
+        height: 286
+      alignment: 9
+      pivot: {x: 0.9451883, y: 0.8445905}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CTH 2 anim_2
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 13
+        width: 134
+        height: 249
+      alignment: 9
+      pivot: {x: 0.844461, y: 0.9659356}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CTH 2 anim_3
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 40
+        width: 185
+        height: 222
+      alignment: 9
+      pivot: {x: 0.93156934, y: 0.9383125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CTH 2 anim_4
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 128
+        width: 252
+        height: 143
+      alignment: 9
+      pivot: {x: 0.94553775, y: 0.8489523}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
