@@ -29,6 +29,19 @@ public class GameManager : MonoBehaviour {
         getNewOrder();
 	}
 
+    void Update() {
+        string li = "";
+        for (int x = 0; x < currentOrder.getCurrentPlate().Count; x++)
+        {
+            li += currentOrder.getCurrentPlate()[x] + " ";
+        }
+        print(li);
+    }
+
+    public Order getCurrentOrder() {
+        return currentOrder;
+    }
+
     public void getNewOrder() {
         //TODO - set order to be something
         currentOrder = OrderCreator.getRandomOrder(difficulty, clientsFed, maxClientsThisLevel);

@@ -6,6 +6,7 @@ public class BodyPart : MonoBehaviour {
     public int index;
     GameObject foodHolding;
     GameManager gm;
+    public int grabTime, timer;
 
     bool grabbingFood = false;
 
@@ -14,9 +15,7 @@ public class BodyPart : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (grabbingFood) {
-            grabbingFood = false;
-        }   
+
 	}
 
     public void grabFood() {

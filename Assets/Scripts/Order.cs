@@ -33,4 +33,13 @@ public class Order {
         }
         return true;
     }
+
+    public List<Ingredient> getIngredientList() {
+        return ingredientList;
+    }
+
+    public List<Ingredient> getCurrentPlate()
+    {
+        return currentPlate;
+    }
 }
