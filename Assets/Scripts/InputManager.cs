@@ -29,7 +29,11 @@ public class InputManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         for (int x = 0; x < keys.Count; x++)
-        {/*
+        {
+            if (Input.GetKeyDown(keys[x])) {
+                cs.grabFood(x);
+            }
+            /*
             if (Input.GetKeyDown(keys[x]) && items[x].transform.position.y >= 3)
             {
                 cs.grabFood(x);

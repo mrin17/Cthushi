@@ -13,7 +13,11 @@ public class Order {
 
     public bool addIngredient(Ingredient ingredient) {
         int location = currentPlate.Count;
-        if (ingredientList[location] == ingredient) {
+        if (location >= ingredientList.Count) {
+            Debug.Log("You tried to add too many ingredients to the plate");
+            return false;
+        }
+        if (ingredientList[location] != ingredient) {
             currentPlate.Add(ingredient);
             return true;
         } else {

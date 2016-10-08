@@ -29,15 +29,6 @@ public class GameManager : MonoBehaviour {
         getNewOrder();
 	}
 
-    void Update() {
-        string li = "";
-        for (int x = 0; x < currentOrder.getCurrentPlate().Count; x++)
-        {
-            li += currentOrder.getCurrentPlate()[x] + " ";
-        }
-        print(li);
-    }
-
     public Order getCurrentOrder() {
         return currentOrder;
     }
@@ -49,6 +40,11 @@ public class GameManager : MonoBehaviour {
 
     public bool addToOrder(Ingredient i)
     {
+        string totalOrder = "";
+        foreach (Ingredient ingredient in currentOrder.getCurrentPlate()) {
+            totalOrder += ingredient + " ";
+        }
+        print(i + " being added to (" + totalOrder + ")");
         return currentOrder.addIngredient(i);
     }
 	
