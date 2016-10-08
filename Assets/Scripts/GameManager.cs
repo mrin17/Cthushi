@@ -22,16 +22,30 @@ public class GameManager : MonoBehaviour {
     public GameObject meter;
 
 
-    //For easy, medium, hard, and unlimited
-    public List<int> highScores = new List<int>() { 0, 0, 0, 0 };
-    int clientsFed = 0;
-    int maxClientsThisLevel = 10;
-    int difficulty = 1;
-
     Order currentOrder;
     //in the order of spawn, queue, center (one we are working on), and out the door
     //So current plate is currentPlates[2]
     List<Plate> currentPlates;
+
+    //Level information------------------------------------
+    int clientsFed = 0;
+    int maxClientsThisLevel = 10;
+    int difficulty = 1;
+    bool unlimitedMode = false;
+
+    //Scoring------------------------------------------------
+    //For easy, medium, hard, and unlimited
+    public List<int> highScores = new List<int>() { 0, 0, 0, 0 };
+    int currentScore = 0;
+    //ALGORITHM
+    // - Under NUM_FOOD_ITEMS * SECONDS_PER_FOOD_ITEM seconds = Great
+    // - Under NUM_FOOD_ITEMS * SECONDS_PER_FOOD_ITEM * 2 seconds = Meh
+    // - Under NUM_FOOD_ITEMS * SECONDS_PER_FOOD_ITEM * 3 seconds = Bad
+    // - Beyond Bad - They leave
+    //Maximum number for NUM_FOOD_ITEMS = 8
+    const int SECONDS_PER_FOOD_ITEM = 1;
+    float timeSpentOnOrder = 0;
+
 
     void Start()
     {
@@ -44,15 +58,22 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
-
+        timeSpentOnOrder += Time.deltaTime;
     }
 
+    //SCORING----------------------------------------------------
+    //Best satisfaction is 0, 1 is meh, 2 is Bad, 3 is they leave
+    public int getSatisfaction() {
+        return (int) (timeSpentOnOrder / currentOrder.getIngredientList().Count * SECONDS_PER_FOOD_ITEM);
+    }
+
+    //ORDERS----------------------------------------------------
     public Order getCurrentOrder() {
         return currentOrder;
     }
 
     public void getNewOrder() {
-        //TODO - set order to be something
+        timeSpentOnOrder = 0;
         currentOrder = OrderCreator.getRandomOrder(difficulty, clientsFed, maxClientsThisLevel);
         string totalOrder = "Target Order is: ";
         foreach (Ingredient ingredient in currentOrder.getIngredientList()) {
@@ -79,6 +100,7 @@ public class GameManager : MonoBehaviour {
         return currentOrder.addIngredient(i);
     }
 
+    //PLATES--------------------------------------------
     public void advancePlates() {
         //Moves all the plates forward
         foreach (Plate p in currentPlates) {
@@ -95,6 +117,7 @@ public class GameManager : MonoBehaviour {
         currentPlates[2].AddObjectToPlate(food);
     }
 
+    //INGREDIENTS--------------------------------------------------
     public static bool isRice(Ingredient i) { return rice.Contains(i); }
     public static bool isMeat(Ingredient i) { return meats.Contains(i); }
     public static bool isCondiment(Ingredient i) { return condiments.Contains(i); }
