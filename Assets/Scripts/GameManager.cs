@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour {
     {
         DontDestroyOnLoad(this);
         getNewOrder();
+        currentPlates = new List<Plate>();
+        advancePlates();
+        advancePlates();
+        advancePlates();
     }
 
     void Update() {
