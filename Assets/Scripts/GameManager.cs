@@ -147,9 +147,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void dropFoodOnPlate(GameObject food) {
-        currentPlates[2].AddObjectToPlate(food);
-    }
+    public Plate getCurrentPlate() { return currentPlates[2]; }
 
     //INGREDIENTS--------------------------------------------------
     public static bool isRice(Ingredient i) { return rice.Contains(i); }

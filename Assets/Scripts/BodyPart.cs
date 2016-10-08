@@ -44,9 +44,11 @@ public class BodyPart : MonoBehaviour {
                     foodHolding = (GameObject)Instantiate(Resources.Load("food"), transform.position + new Vector3(0, -1, 0), Quaternion.identity);
                     foodHolding.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(
                         GameManager.ingredientsToSpriteNames[GameManager.indexToIngredient[index]]);
+                    //TODO - make it throw the food towards the plate
+                    foodHolding.GetComponent<Food>().moveTowardsLocation(gm.getCurrentPlate().getNextPositionToMoveTowards());
                     break;
                 case State.placing:
-                    gm.dropFoodOnPlate(foodHolding);
+                    gm.getCurrentPlate().AddObjectToPlate(foodHolding);
                     foodHolding = null;
                     currentState = State.cooldown;
                     timer = COOLDOWN_TIME;
@@ -54,6 +56,7 @@ public class BodyPart : MonoBehaviour {
                 case State.throwing:
                     foodHolding.GetComponent<Food>().throwFood();
                     foodHolding = null;
+                    //TODO - maybe he does his knife animation just to push the food off the plate?
                     currentState = State.cooldown;
                     timer = COOLDOWN_TIME;
                     break;
@@ -68,9 +71,7 @@ public class BodyPart : MonoBehaviour {
     public void grabFood() {
         currentState = State.grabbing;
         timer = GRAB_TIME;
-        //TODO - enable tentacle animation
         Ingredient food = GameManager.indexToIngredient[index];
-        //TODO - add food to current Order, bool result returns whether the ingredient was correct or not
         gm.anims[index].SetBool("ButtonPressed?", true);
         grabbingCorrectFood = gm.addToOrder(food);
         if (grabbingCorrectFood)

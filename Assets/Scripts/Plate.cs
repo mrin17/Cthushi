@@ -35,11 +35,17 @@ public class Plate : MonoBehaviour {
         transform.position = newPos;
     }
 
+    public Vector3 getNextPositionToMoveTowards() {
+        int whichLoc = objectsOnPlate.Count % 4;
+        return transform.position + positions[whichLoc];
+    }
+
     //repeats the first four locations
     public void AddObjectToPlate(GameObject obj) {
         int whichLoc = objectsOnPlate.Count % 4;
         obj.transform.position = transform.position + positions[whichLoc];
         obj.transform.parent = transform;
+        obj.GetComponent<Food>().enabled = false; //so it doesnt move when its not supposed to
         objectsOnPlate.Add(obj);
     }
 
