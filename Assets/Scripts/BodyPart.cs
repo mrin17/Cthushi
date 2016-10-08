@@ -56,6 +56,16 @@ public class BodyPart : MonoBehaviour {
         Ingredient food = GameManager.indexToIngredient[index];
         //TODO - add food to current Order, bool result returns whether the ingredient was correct or not
         grabbingCorrectFood = gm.addToOrder(food);
+        for (int x = 0; x < gm.getCurrentOrder().getCurrentPlate().Count; x++)
+        {
+            if (gm.getCurrentOrder().getCurrentPlate().Contains(gm.getCurrentOrder().getIngredientList()[x]))
+            {
+                for (int y = 1; y < gm.meter.transform.childCount - 1; y++)
+                {
+                    gm.meter.transform.GetChild(y).GetComponent<TextMesh>().text = gm.meter.transform.GetChild(y + 1).GetComponent<TextMesh>().text;
+                }
+            }
+        }
     }
 
     public bool isGrabbingFood() { return currentState != State.neutral; }

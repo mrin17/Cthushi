@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
         Ingredient.tofu, Ingredient.tuna, Ingredient.crab,
         Ingredient.ginger, Ingredient.wasabi, Ingredient.soySauce,
         Ingredient.whiteRice, Ingredient.brownRice };
+    public GameObject meter;
 
 
     //For easy, medium, hard, and unlimited
@@ -24,10 +25,15 @@ public class GameManager : MonoBehaviour {
 
     Order currentOrder;
 
-	void Start () {
+    void Start()
+    {
         DontDestroyOnLoad(this);
         getNewOrder();
-	}
+    }
+
+    void Update() {
+
+    }
 
     public Order getCurrentOrder() {
         return currentOrder;
@@ -41,6 +47,14 @@ public class GameManager : MonoBehaviour {
             totalOrder += ingredient + " ";
         }
         Debug.Log(totalOrder);
+        for (int x = 0; x < currentOrder.getIngredientList().Count; x++)
+        {
+            meter.transform.GetChild(x + 1).GetComponent<TextMesh>().text = currentOrder.getIngredientList()[x].ToString();
+        }
+        for (int x = currentOrder.getIngredientList().Count + 1; x < meter.transform.childCount; x++)
+        {
+            meter.transform.GetChild(x).GetComponent<TextMesh>().text = "";
+        }
     }
 
     public bool addToOrder(Ingredient i)
