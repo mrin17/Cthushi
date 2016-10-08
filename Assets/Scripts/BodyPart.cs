@@ -21,7 +21,7 @@ public class BodyPart : MonoBehaviour {
     public void grabFood() {
         grabbingFood = true;
         //TODO - enable tentacle animation
-        Ingredient food = Order.indexToIngredient[index];
+        Ingredient food = GameManager.indexToIngredient[index];
         //TODO - add food to current Order, bool result returns whether the ingredient was correct or not
         //TODO - timer on cooldown for grabbingFood
     }

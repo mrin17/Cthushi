@@ -1,19 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public enum Ingredient { tofu, tuna, crab, ginger, wasabi, soySauce, whiteRice, brownRice}
-
 public class Order {
 
-    //General list of ingredients, this will be the ordering of the ingredients on the counter
-    //Can be changed to fit design
-    public static List<Ingredient> indexToIngredient = new List<Ingredient>() {
-        Ingredient.tofu, Ingredient.tuna, Ingredient.crab,
-        Ingredient.ginger, Ingredient.wasabi, Ingredient.soySauce,
-        Ingredient.whiteRice, Ingredient.brownRice };
+    List<Ingredient> ingredientList;
+    List<Ingredient> currentPlate;
 
-    List<Ingredient> ingredientList = new List<Ingredient>();
-    List<Ingredient> currentPlate = new List<Ingredient>();
+    public Order(List<Ingredient> ingredients) {
+        ingredientList = ingredients;
+        currentPlate = new List<Ingredient>();
+    }
 
     public bool addIngredient(Ingredient ingredient) {
         int location = currentPlate.Count;
