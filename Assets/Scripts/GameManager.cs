@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
 
     public void getNewOrder() {
         //TODO - set order to be something
-        currentOrder = OrderCreator.getRandomOrder(difficulty, clientsFed, maxClients);
+        currentOrder = OrderCreator.getRandomOrder(difficulty, clientsFed, maxClientsThisLevel);
     }
 
     public bool addToOrder(Ingredient i) {
