@@ -71,9 +71,23 @@ public class GameManager : MonoBehaviour {
         return Mathf.Min(currentOrder.getIngredientList().Count, MAX_FOOD_ITEMS_TRACKED_FOR_SCORE);
     }
 
+    public float getTimeRemaining() {
+        return getScoredFoodItems() * 3 - timeSpentOnOrder;
+    }
+
     public int getScore() {
+        float timeLeft = getTimeRemaining();
+        if (timeLeft <= 0) {
+            return 0;
+        }
         int foodNum = getScoredFoodItems();
-        return 0; //TODO fix
+        float timeMultiplier = Mathf.Log(timeLeft);
+        int finalScore = (int) (foodNum * timeMultiplier);
+        return finalScore;
+    }
+
+    public void scorePlate() {
+        currentScore += getScore();
     }
 
     //ORDERS----------------------------------------------------
