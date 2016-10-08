@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
     };
     public GameObject meter;
     Score scoreScript;
-    public Animator anim;
+    public Animator[] anims;
 
 
     Order currentOrder;
@@ -120,7 +120,6 @@ public class GameManager : MonoBehaviour {
 
     public bool addToOrder(Ingredient i)
     {
-        anim.SetBool("ButtonPressed?", true);
         string totalOrder = "";
         foreach (Ingredient ingredient in currentOrder.getCurrentPlate()) {
             totalOrder += ingredient + " ";

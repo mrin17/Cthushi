@@ -35,11 +35,11 @@ public class BodyPart : MonoBehaviour {
                     if (grabbingCorrectFood) {
                         currentState = State.placing;
                         timer = DROP_ON_PLATE_TIME;
-                        gm.anim.SetBool("ButtonPressed?", false);
+                        gm.anims[index].SetBool("ButtonPressed?", false);
                     } else {
                         currentState = State.throwing;
                         timer = THROW_AWAY_TIME;
-                        gm.anim.SetBool("ButtonPressed?", false);
+                        gm.anims[index].SetBool("ButtonPressed?", false);
                     }
                     foodHolding = (GameObject)Instantiate(Resources.Load("food"), transform.position + new Vector3(0, -1, 0), Quaternion.identity);
                     foodHolding.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(
@@ -71,6 +71,7 @@ public class BodyPart : MonoBehaviour {
         //TODO - enable tentacle animation
         Ingredient food = GameManager.indexToIngredient[index];
         //TODO - add food to current Order, bool result returns whether the ingredient was correct or not
+        gm.anims[index].SetBool("ButtonPressed?", true);
         grabbingCorrectFood = gm.addToOrder(food);
         if (grabbingCorrectFood)
             {
