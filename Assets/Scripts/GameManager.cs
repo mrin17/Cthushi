@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour {
     public void getNewOrder() {
         //TODO - set order to be something
         currentOrder = OrderCreator.getRandomOrder(difficulty, clientsFed, maxClientsThisLevel);
+        string totalOrder = "Target Order is: ";
+        foreach (Ingredient ingredient in currentOrder.getIngredientList()) {
+            totalOrder += ingredient + " ";
+        }
+        Debug.Log(totalOrder);
     }
 
     public bool addToOrder(Ingredient i)

@@ -17,7 +17,7 @@ public class Order {
             Debug.Log("You tried to add too many ingredients to the plate");
             return false;
         }
-        if (ingredientList[location] != ingredient) {
+        if (ingredientList[location] == ingredient) {
             currentPlate.Add(ingredient);
             return true;
         } else {
