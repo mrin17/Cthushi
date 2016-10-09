@@ -247,10 +247,12 @@ MonoBehaviour:
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Press Space to Begin!
+  m_Text: 'Press A for Adventure Mode
+
+    Press L for Unlimited Mode'
 --- !u!222 &991170886
 CanvasRenderer:
   m_ObjectHideFlags: 0
