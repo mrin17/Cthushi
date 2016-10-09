@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: d9f246f0391192543b48607b489ef244
-timeCreated: 1476022412
+guid: 79ef2a93af796f941bfbd0819fb58d4a
+timeCreated: 1476022434
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: CTH Creature Portraits_0
-    21300002: CTH Creature Portraits_1
-    21300004: CTH Creature Portraits_2
+    21300000: CTH Portraits_0
+    21300002: CTH Portraits_1
+    21300004: CTH Portraits_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -56,7 +56,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CTH Creature Portraits_0
+      name: CTH Portraits_0
       rect:
         serializedVersion: 2
         x: 0
@@ -64,12 +64,12 @@ TextureImporter:
         width: 250
         height: 250
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CTH Creature Portraits_1
+      name: CTH Portraits_1
       rect:
         serializedVersion: 2
         x: 250
@@ -77,12 +77,12 @@ TextureImporter:
         width: 250
         height: 250
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CTH Creature Portraits_2
+      name: CTH Portraits_2
       rect:
         serializedVersion: 2
         x: 500
@@ -90,7 +90,7 @@ TextureImporter:
         width: 250
         height: 250
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

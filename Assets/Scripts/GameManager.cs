@@ -56,13 +56,16 @@ public class GameManager : MonoBehaviour {
     const int MAX_FOOD_ITEMS_TRACKED_FOR_SCORE = 7;
     const int SECONDS_PER_FOOD_ITEM = 1;
     float timeSpentOnOrder = 0;
+    bool freezeTimeSpent = false;
 
     ScoreAndDifficulty scoreAndDifficulty;
+    CharacterPortrait portraitScript;
 
     void Start()
     {
         //DontDestroyOnLoad(this);
         scoreAndDifficulty = FindObjectOfType<ScoreAndDifficulty>();
+        portraitScript = FindObjectOfType<CharacterPortrait>();
         setUpPlates();
         scoreScript = FindObjectOfType<Score>();
         if (scoreAndDifficulty.getUnlimitedMode()) {
@@ -83,7 +86,9 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
-        timeSpentOnOrder += Time.deltaTime;
+        if (!freezeTimeSpent) {
+            timeSpentOnOrder += Time.deltaTime;
+        }
         if (getTimeRemaining() < 0) {
             hasLost = true;
         }
@@ -136,6 +141,7 @@ public class GameManager : MonoBehaviour {
         int foodNum = getScoredFoodItems();
         float timeMultiplier = Mathf.Log(timeLeft + 1); //so the score is always positive
         int finalScore = (int)(foodNum * timeMultiplier * 100) * 10; //so it always ends in a 0
+        freezeTimeSpent = true;
         return finalScore;
     }
 
@@ -173,6 +179,8 @@ public class GameManager : MonoBehaviour {
         {
             meter.transform.GetChild(x).GetComponent<SpriteRenderer>().sprite = null;
         }
+        portraitScript.setRandomPortrait();
+        freezeTimeSpent = false;
     }
 
     public bool addToOrder(Ingredient i)
