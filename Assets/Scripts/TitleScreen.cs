@@ -46,10 +46,10 @@ public class TitleScreen : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene("Test Scene");
+                SceneManager.LoadScene("Level");
             }
         }
-        if (SceneManager.GetActiveScene().name == "Cutscene3")
+        if (SceneManager.GetActiveScene().name == "Cutscene3" || SceneManager.GetActiveScene().name == "YouLose")
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
