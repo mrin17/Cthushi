@@ -75,6 +75,7 @@ public class Plate : MonoBehaviour {
             } else {
                 lastcolor = GameManager.ingredientsToColors[i];
                 if (nextSushiLayer > MAX_SUSHI_LAYERS) {
+                    obj.SetActive(false);
                     continue;
                 }
                 sushi.transform.GetChild(nextSushiLayer).GetComponent<SpriteRenderer>().color = lastcolor;

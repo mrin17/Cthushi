@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
     Score scoreScript;
     public Animator[] anims;
     SoundHandler sh;
+    public GameObject spaceArrow;
 
     Order currentOrder;
     //in the order of spawn, queue, center (one we are working on), and out the door
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour {
     // - Under NUM_FOOD_ITEMS * SECONDS_PER_FOOD_ITEM * 3 seconds = Bad
     // - Beyond Bad - They leave
     const int MAX_FOOD_ITEMS_TRACKED_FOR_SCORE = 4;
-    const float SECONDS_PER_FOOD_ITEM = 1f;
+    const float SECONDS_PER_FOOD_ITEM = 1.25f;
     float timeSpentOnOrder = 0;
     bool freezeTimeSpent = false;
 
@@ -97,6 +98,7 @@ public class GameManager : MonoBehaviour {
         if (!levelComplete && (hasWon || hasLost)) {
             levelComplete = true;
             scoreScript.gameObject.SetActive(false);
+            spaceArrow.SetActive(false);
             int highScore;
             if (scoreAndDifficulty.getUnlimitedMode()) {
                 highScore = scoreAndDifficulty.getHighScore(3);
