@@ -1990,6 +1990,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9f5119c06c6394eb7e21e5d7b96b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredientsOnPlate:
+  - {fileID: 21300012, guid: 01c3b09cbc665704981f2e45369c99c7, type: 3}
+  - {fileID: 21300018, guid: 01c3b09cbc665704981f2e45369c99c7, type: 3}
+  - {fileID: 21300024, guid: 01c3b09cbc665704981f2e45369c99c7, type: 3}
+  - {fileID: 21300022, guid: 01c3b09cbc665704981f2e45369c99c7, type: 3}
+  - {fileID: 21300020, guid: 01c3b09cbc665704981f2e45369c99c7, type: 3}
+  - {fileID: 21300014, guid: 01c3b09cbc665704981f2e45369c99c7, type: 3}
+  - {fileID: 21300026, guid: 01c3b09cbc665704981f2e45369c99c7, type: 3}
+  - {fileID: 21300010, guid: 01c3b09cbc665704981f2e45369c99c7, type: 3}
   meter: {fileID: 406646776}
   anims:
   - {fileID: 628570300}

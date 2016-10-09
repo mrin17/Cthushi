@@ -6,6 +6,7 @@ public class Food : MonoBehaviour {
     bool gettingThrown = false;
     float moveSpeed = .25f;
     Vector3 locToMoveTowards;
+    Ingredient ingredient;
 
     // Update is called once per frame
     void Update() {
@@ -24,4 +25,7 @@ public class Food : MonoBehaviour {
     public void moveTowardsLocation(Vector3 loc) {
         locToMoveTowards = loc;
     }
+
+    public void setIngredient(Ingredient i) { ingredient = i; }
+    public Ingredient getIngredient() { return ingredient; }
 }

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
         { Ingredient.ginger, "Ginger" }, { Ingredient.wasabi, "Wasabi" }, { Ingredient.soySauce, "SoySauce" },
         { Ingredient.whiteRice, "Rice" }, { Ingredient.kelp, "Kelp" }
     };
+    public List<Sprite> ingredientsOnPlate;
     public GameObject meter;
     Score scoreScript;
     public Animator[] anims;

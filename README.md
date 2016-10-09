@@ -8,6 +8,7 @@ Andrew, Michael, Nathan, Gilbert
 ###Things we have to do
 Programming
 -Knife and Paddle animations and add to scene (keep arms extended for a time)
+-fix animators to be any state!!!
 -time the (make sushi animation) to replace all ingredients with sushi
 
 -Add modular sushi and add slicing

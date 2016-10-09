@@ -13,11 +13,7 @@ public class Plate : MonoBehaviour {
     float movementSpeedOutDoor = .5f;
     PlateState currentState = PlateState.spawn;
 
-    const float H_OFFSET = .25f;
-    const float V_OFFSET = .2f;
-    static List<Vector3> positions = new List<Vector3>() {
-        new Vector3(-H_OFFSET, V_OFFSET, 0), new Vector3(H_OFFSET, V_OFFSET, 0),
-        new Vector3(-H_OFFSET, -V_OFFSET, 0), new Vector3(H_OFFSET, -V_OFFSET, 0) };
+    const float V_INCREMENT = .1f;
     List<GameObject> objectsOnPlate;
 
 
@@ -35,18 +31,24 @@ public class Plate : MonoBehaviour {
         transform.position = newPos;
     }
 
-    public Vector3 getNextPositionToMoveTowards() {
-        int whichLoc = objectsOnPlate.Count % 4;
-        return transform.position + positions[whichLoc];
+    public Vector3 getNextPositionToMoveTowards(Ingredient i) {
+        if (i.Equals(Ingredient.ginger)) {
+            return transform.position + new Vector3(-.7f, .2f);
+        } else if (i.Equals(Ingredient.wasabi)) {
+            return transform.position + new Vector3(.7f, .2f);
+        } else {
+            return transform.position + new Vector3(0, .2f + V_INCREMENT * objectsOnPlate.Count);
+        }
     }
 
     //repeats the first four locations
     public void AddObjectToPlate(GameObject obj) {
-        int whichLoc = objectsOnPlate.Count % 4;
-        obj.transform.position = transform.position + positions[whichLoc];
-        obj.transform.parent = transform;
-        obj.GetComponent<Food>().enabled = false; //so it doesnt move when its not supposed to
-        objectsOnPlate.Add(obj);
+        Food objFood = obj.GetComponent<Food>();
+        obj.transform.localScale = new Vector3(.5f, .5f, 1);
+        obj.transform.position = getNextPositionToMoveTowards(objFood.getIngredient());
+        objFood.enabled = false; //so it doesnt move when its not supposed to       
+        obj.transform.parent = transform;       
+        objectsOnPlate.Add(obj);        
     }
 
     public void ClearPlate() {
