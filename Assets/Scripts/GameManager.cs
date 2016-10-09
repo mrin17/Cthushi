@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour {
             GetComponent<AudioSource>().clip = musics[2];
         } else {
             GetComponent<AudioSource>().clip = musics[scoreAndDifficulty.getDifficulty() - 1];
-            maxClientsThisLevel = 3; // 5 + scoreAndDifficulty.getDifficulty() * 5;
+            maxClientsThisLevel = 5 + scoreAndDifficulty.getDifficulty() * 5;
         }
         GetComponent<AudioSource>().Play();
         sh = FindObjectOfType<SoundHandler>();
