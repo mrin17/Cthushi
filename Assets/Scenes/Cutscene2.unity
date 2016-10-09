@@ -117,7 +117,9 @@ TextMesh:
   m_Text: "\"SE-R'LYEH-SLY? There are NO stars on this world.\nNONE. How am I supposed
     to use my true strength if\nthe stars are not right? \n\nWait a second...\n\nWhat
     are these things called 'Michelin Stars'? It says\nthat restaurants are awarded
-    'Stars' for good service"
+    'Stars' for good service...\nThese should seem sufficient enough substitutes...\nAnd
+    then, when I get all my Michelin Stars...\nI WILL DESTROY THIS WORLD!\n\n                                   -Cthulhu,
+    Destroyer of Worlds"
   m_OffsetZ: 0
   m_CharacterSize: 0.4
   m_LineSpacing: 1
@@ -167,7 +169,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 198808662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.01, y: 3.39, z: 0}
+  m_LocalPosition: {x: -6.37, y: 4.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
