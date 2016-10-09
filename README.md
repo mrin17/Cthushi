@@ -8,7 +8,9 @@ Andrew, Michael, Nathan, Gilbert
 ###Things we have to do
 Programming
 -Knife and Paddle animations and add to scene (keep arms extended for a time)
--time the (make sushi animation) and plate move to replace all ingredients with sushi
+-add cloud puff sprite
+-time the (make sushi animation)
+-space out sushi icons on the left bar more
 
 -actual levels and winning them
 -unlimited time mode

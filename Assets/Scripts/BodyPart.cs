@@ -10,7 +10,6 @@ public class BodyPart : MonoBehaviour {
     GameManager gm;
     public float GRAB_TIME = .5f;
     public float DROP_ON_PLATE_TIME = .5f;
-    //TODO - implement throw away time on ingredients that you throw away
     public float THROW_AWAY_TIME = .5f;
     public float COOLDOWN_TIME = .25f;
     float timer = 0;

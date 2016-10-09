@@ -101,6 +101,12 @@ public class GameManager : MonoBehaviour {
         scoreScript.addScore(score);
     }
 
+    const int INCORRECT_FOOD_SCORE = -500;
+    public void addIncorrectFoodScore() {
+        currentScore += INCORRECT_FOOD_SCORE;
+        scoreScript.addScore(INCORRECT_FOOD_SCORE);
+    }
+
     //ORDERS----------------------------------------------------
     public Order getCurrentOrder() {
         return currentOrder;
@@ -131,12 +137,14 @@ public class GameManager : MonoBehaviour {
             totalOrder += ingredient + " ";
         }
         print(i + " being added to (" + totalOrder + ")");
-        return currentOrder.addIngredient(i);
+        bool result = currentOrder.addIngredient(i);
+        if (!result) {
+            addIncorrectFoodScore();
+        }
+        return result;
     }
 
     public void finishOrder() {
-        scorePlate();
-        getCurrentPlate().CreateSushi();
         advancePlates();
         getNewOrder();
     }
