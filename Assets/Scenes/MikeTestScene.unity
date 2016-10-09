@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 3
-  GRAB_TIME: 0.1
+  GRAB_TIME: 0.01
   DROP_ON_PLATE_TIME: 0.3
   THROW_AWAY_TIME: 0.5
   COOLDOWN_TIME: 0.15
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 6
-  GRAB_TIME: 0.1
+  GRAB_TIME: 0.01
   DROP_ON_PLATE_TIME: 0.3
   THROW_AWAY_TIME: 0.5
   COOLDOWN_TIME: 0.15
@@ -1454,7 +1454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
-  GRAB_TIME: 0.1
+  GRAB_TIME: 0.01
   DROP_ON_PLATE_TIME: 0.3
   THROW_AWAY_TIME: 0.5
   COOLDOWN_TIME: 0.15
@@ -1633,7 +1633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 4
-  GRAB_TIME: 0.1
+  GRAB_TIME: 0.01
   DROP_ON_PLATE_TIME: 0.3
   THROW_AWAY_TIME: 0.5
   COOLDOWN_TIME: 0.15
@@ -1870,7 +1870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
-  GRAB_TIME: 0.1
+  GRAB_TIME: 0.01
   DROP_ON_PLATE_TIME: 0.3
   THROW_AWAY_TIME: 0.5
   COOLDOWN_TIME: 0.15
@@ -1979,6 +1979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51b78b40e5676b4eb33666a69f62fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multipleTentacleMovement: 0
 --- !u!114 &1403964964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2277,7 +2278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 7
-  GRAB_TIME: 0.1
+  GRAB_TIME: 0.01
   DROP_ON_PLATE_TIME: 0.3
   THROW_AWAY_TIME: 0.5
   COOLDOWN_TIME: 0.15
@@ -2638,7 +2639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0
-  GRAB_TIME: 0.1
+  GRAB_TIME: 0.01
   DROP_ON_PLATE_TIME: 0.3
   THROW_AWAY_TIME: 0.5
   COOLDOWN_TIME: 0.15
@@ -2827,7 +2828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 5
-  GRAB_TIME: 0.1
+  GRAB_TIME: 0.01
   DROP_ON_PLATE_TIME: 0.3
   THROW_AWAY_TIME: 0.5
   COOLDOWN_TIME: 0.15

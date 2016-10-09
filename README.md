@@ -8,11 +8,7 @@ Andrew, Michael, Nathan, Gilbert
 ###Things we have to do
 Programming
 -Knife and Paddle animations and add to scene (keep arms extended for a time)
--fix animators to be any state!!!
--time the (make sushi animation) to replace all ingredients with sushi
-
--Add modular sushi and add slicing
--Tweak code to work with modular sushi
+-time the (make sushi animation) and plate move to replace all ingredients with sushi
 
 -actual levels and winning them
 -unlimited time mode
@@ -22,6 +18,7 @@ Programming
 -look at realigning cthulu/bowls/etc, move letters above plates. (fix all depth)
 -make intro screen UI
 -implement sounds and music
+-penalty for adding an incorrect item
 
 Art
 - 3-5 character portraits

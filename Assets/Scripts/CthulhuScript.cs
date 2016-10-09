@@ -7,6 +7,7 @@ public class CthulhuScript : MonoBehaviour {
     List<BodyPart> tentacles;
     InputManager i;
     GameManager gm;
+    bool multipleTentacleMovement = true;
 
 	void Start () {
         tentacles = new List<BodyPart>();
@@ -29,9 +30,16 @@ public class CthulhuScript : MonoBehaviour {
     }
 
     public void grabFood(int whichTentacle) {
-        if (!isGrabbingFood()) {
-            tentacles[whichTentacle].grabFood();
+        if (multipleTentacleMovement) {
+            if (!tentacles[whichTentacle].isGrabbingFood()) {
+                tentacles[whichTentacle].grabFood();
+            }
+        } else {
+            if (!isGrabbingFood()) {
+                tentacles[whichTentacle].grabFood();
+            }
         }
+
     }
 
 
