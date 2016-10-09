@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour {
 
     void Start()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
         setUpPlates();
         scoreScript = FindObjectOfType<Score>();
         if (unlimitedMode) {
