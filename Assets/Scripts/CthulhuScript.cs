@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class CthulhuScript : MonoBehaviour {
 
     public Animator Knife, Paddle;
+    public GameObject cloud;
     enum CState { neutral, swiping, clapping, waiting, shipping };
     public float SWIPE_TIME = .25f; //time you spend swiping your knife
     public float CLAP_TIME = .6f; //time you spend before the cloud appears
@@ -46,12 +47,21 @@ public class CthulhuScript : MonoBehaviour {
                     currentState = CState.waiting;
                     timer = WAIT_TIME;
                     //TODO - create cloud and make sushi
+                    cloud.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
                     gm.getCurrentPlate().CreateSushi();
                     break;
                 case CState.waiting:
-                    currentState = CState.shipping;
-                    timer = SHIP_TIME;
-                    gm.finishOrder();
+                    if (cloud.GetComponent<SpriteRenderer>().color.a > 0)
+                    {
+                        currentState = CState.waiting;
+                        cloud.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, cloud.GetComponent<SpriteRenderer>().color.a - .025f);
+                    }
+                    else
+                    {
+                        currentState = CState.shipping;
+                        timer = SHIP_TIME;
+                        gm.finishOrder();
+                    }
                     break;
                 case CState.shipping:
                     currentState = CState.neutral;
