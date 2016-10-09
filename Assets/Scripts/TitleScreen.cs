@@ -49,5 +49,12 @@ public class TitleScreen : MonoBehaviour {
                 SceneManager.LoadScene("Test Scene");
             }
         }
+        if (SceneManager.GetActiveScene().name == "Cutscene3")
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("Title");
+            }
+        }
     }
 }
