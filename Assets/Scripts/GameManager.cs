@@ -126,8 +126,8 @@ public class GameManager : MonoBehaviour {
                     SceneManager.LoadScene("Title");
                 } else {
                     if (hasLost) {
-                        //TODO - go to intro screen
-                        SceneManager.LoadScene("Title");
+                        //TODO - go to you lose screen
+                        SceneManager.LoadScene("YouLose");
                     } else {
                         int difficulty = scoreAndDifficulty.getDifficulty();
                         if (difficulty == 1 || difficulty == 2) {
