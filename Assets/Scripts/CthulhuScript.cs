@@ -12,6 +12,8 @@ public class CthulhuScript : MonoBehaviour {
     public float WAIT_TIME = .5f; //time you spend observing your sushi
     public float SHIP_TIME = .25f; //time you spend before you can make more sushi
     float timer = 0;
+    string[] victorys = { "Cthulu_8arms", "Cthulu_Enjoy", "Cthulu_hopeyoulikeit", "Cthulu_just4u", "Cthulu_just4u_2", "Cthulu_madewithlove" };
+
 
     List<BodyPart> tentacles;
     InputManager i;
@@ -80,6 +82,7 @@ public class CthulhuScript : MonoBehaviour {
             timer = CLAP_TIME;
             gm.scorePlate();
             sh.PlaySound("finished_plate");
+            sh.PlaySound(victorys[Random.Range(0, 5)]);
         }
     }
 

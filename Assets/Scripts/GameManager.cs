@@ -33,8 +33,6 @@ public class GameManager : MonoBehaviour {
     Score scoreScript;
     public Animator[] anims;
     SoundHandler sh;
-    string[] victorys = { "Cthulu_8arms", "Cthulu_Enjoy", "Cthulu_hopeyoulikeit", "Cthulu_just4u", "Cthulu_just4u_2", "Cthulu_madewithlove" };
-
 
     Order currentOrder;
     //in the order of spawn, queue, center (one we are working on), and out the door
@@ -74,8 +72,8 @@ public class GameManager : MonoBehaviour {
         if (scoreAndDifficulty.getUnlimitedMode()) {
             GetComponent<AudioSource>().clip = musics[2];
         } else {
-            GetComponent<AudioSource>().clip = musics[scoreAndDifficulty.getDifficulty()];
-            maxClientsThisLevel = 5 + scoreAndDifficulty.getDifficulty() * 5;
+            GetComponent<AudioSource>().clip = musics[scoreAndDifficulty.getDifficulty() - 1];
+            maxClientsThisLevel = 3; // 5 + scoreAndDifficulty.getDifficulty() * 5;
         }
         GetComponent<AudioSource>().Play();
         sh = FindObjectOfType<SoundHandler>();
@@ -225,7 +223,6 @@ public class GameManager : MonoBehaviour {
     }
 
     public void finishOrder() {
-        sh.PlaySound(victorys[Random.Range(0, 5)]);
         advancePlates();
         if (clientsFed != maxClientsThisLevel) {
             getNewOrder();
