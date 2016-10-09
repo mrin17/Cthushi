@@ -90,16 +90,16 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &198808662
+--- !u!1 &1044818603
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 198808665}
-  - 23: {fileID: 198808664}
-  - 102: {fileID: 198808663}
+  - 4: {fileID: 1044818606}
+  - 23: {fileID: 1044818605}
+  - 102: {fileID: 1044818604}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -107,19 +107,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!102 &198808663
+--- !u!102 &1044818604
 TextMesh:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 198808662}
-  m_Text: "SE-R'LYEH-SLY? There are NO stars on this world.\nNONE. How am I supposed
-    to use my true strength if\nthe stars are not right? \n\nWait a second...\n\nWhat
-    are these things called 'Michelin Stars'? It says\nthat restaurants are awarded
-    'Stars' for good service...\nThese should seem sufficient enough substitutes...\nAnd
-    then, when I get all my Michelin Stars...\nI WILL DESTROY THIS WORLD!\n\n                                   -Cthulhu,
-    Destroyer of Worlds"
+  m_GameObject: {fileID: 1044818603}
+  m_Text: "AHAHAHAHA!!! THREE MICHELIN STARS!!!\nNOW THIS WORLD SHALL UNDERSTAND TRUE
+    POWER!\n\nHmmmm... But wait...\n\nI think I'll stay here for a while, to see if
+    I can get\neven MORE stars...\n\nAnd once I get enough...\n\nTHEN the world will
+    enter eternal suffering!\n\n                                        -Cthulhu,
+    Server of Sushi"
   m_OffsetZ: 0
   m_CharacterSize: 0.4
   m_LineSpacing: 1
@@ -133,12 +132,12 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
---- !u!23 &198808664
+--- !u!23 &1044818605
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 198808662}
+  m_GameObject: {fileID: 1044818603}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -162,31 +161,31 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!4 &198808665
+--- !u!4 &1044818606
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 198808662}
+  m_GameObject: {fileID: 1044818603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.37, y: 4.58, z: 0}
+  m_LocalPosition: {x: -6.37, y: 4.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1 &1463379061
+--- !u!1 &1361103780
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1463379066}
-  - 20: {fileID: 1463379065}
-  - 92: {fileID: 1463379064}
-  - 124: {fileID: 1463379063}
-  - 81: {fileID: 1463379062}
+  - 4: {fileID: 1361103785}
+  - 20: {fileID: 1361103784}
+  - 92: {fileID: 1361103783}
+  - 124: {fileID: 1361103782}
+  - 81: {fileID: 1361103781}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -194,33 +193,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1463379062
+--- !u!81 &1361103781
 AudioListener:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1463379061}
+  m_GameObject: {fileID: 1361103780}
   m_Enabled: 1
---- !u!124 &1463379063
+--- !u!124 &1361103782
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1463379061}
+  m_GameObject: {fileID: 1361103780}
   m_Enabled: 1
---- !u!92 &1463379064
+--- !u!92 &1361103783
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1463379061}
+  m_GameObject: {fileID: 1361103780}
   m_Enabled: 1
---- !u!20 &1463379065
+--- !u!20 &1361103784
 Camera:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1463379061}
+  m_GameObject: {fileID: 1361103780}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -249,12 +248,12 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
---- !u!4 &1463379066
+--- !u!4 &1361103785
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1463379061}
+  m_GameObject: {fileID: 1361103780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
