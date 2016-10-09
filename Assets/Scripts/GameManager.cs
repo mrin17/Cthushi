@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public enum Ingredient { calimari, tuna, shrimp, ginger, wasabi, soySauce, whiteRice, kelp }
 
@@ -54,7 +55,7 @@ public class GameManager : MonoBehaviour {
     // - Under NUM_FOOD_ITEMS * SECONDS_PER_FOOD_ITEM * 3 seconds = Bad
     // - Beyond Bad - They leave
     const int MAX_FOOD_ITEMS_TRACKED_FOR_SCORE = 7;
-    const int SECONDS_PER_FOOD_ITEM = 2;
+    const float SECONDS_PER_FOOD_ITEM = 1.5f;
     float timeSpentOnOrder = 0;
     bool freezeTimeSpent = false;
 
@@ -114,6 +115,29 @@ public class GameManager : MonoBehaviour {
                 star.transform.GetChild(0).GetComponent<TextMesh>().text = "You Lost!";
             }
             star.transform.GetChild(1).GetComponent<TextMesh>().text = "" + currentScore;
+        }
+        if (levelComplete) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                if (scoreAndDifficulty.getUnlimitedMode()) {
+                    //TODO - go to intro screen
+                    SceneManager.LoadScene("Title");
+                } else {
+                    if (hasLost) {
+                        //TODO - go to intro screen
+                        SceneManager.LoadScene("Title");
+                    } else {
+                        int difficulty = scoreAndDifficulty.getDifficulty();
+                        if (difficulty == 1 || difficulty == 2) {
+                            scoreAndDifficulty.setDifficulty(difficulty + 1);
+                            //TODO - go to the same screen
+                            SceneManager.LoadScene("Level");
+                        } else {
+                            //TODO - go to Cutscene 3
+                            SceneManager.LoadScene("Cutscene3");
+                        }
+                    }
+                }
+            }
         }
     }
 
