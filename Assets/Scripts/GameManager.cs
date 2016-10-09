@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
         { Ingredient.soySauce, new Color(231f/255, 114f/255, 134f/255) }, { Ingredient.whiteRice, new Color(1, 1, 1) }, { Ingredient.kelp, new Color(50f/255, 88f/255, 12f/255) }
     };
     public List<Sprite> ingredientsOnPlate;
+    public List<AudioClip> musics;
     public GameObject meter;
     Score scoreScript;
     public Animator[] anims;
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour {
     List<Plate> currentPlates;
 
     //Level information------------------------------------
-    //CLIENTS PER LEVEL = 10, 15, 20, 1000000
+    //CLIENTS PER LEVEL = 10, 15, 20
     int clientsFed = 0;
     int maxClientsThisLevel = 10;
     int difficulty = 1;
@@ -61,12 +62,23 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         DontDestroyOnLoad(this);
+        setUpPlates();
+        scoreScript = FindObjectOfType<Score>();
+        if (unlimitedMode) {
+            GetComponent<AudioSource>().clip = musics[2];
+        } else {
+            GetComponent<AudioSource>().clip = musics[difficulty];
+            maxClientsThisLevel = 5 + difficulty * 5;
+        }
+        GetComponent<AudioSource>().Play();
+    }
+
+    void setUpPlates() {
         getNewOrder();
         currentPlates = new List<Plate>();
         advancePlates();
         advancePlates();
         advancePlates();
-        scoreScript = FindObjectOfType<Score>();
     }
 
     void Update() {
@@ -94,7 +106,7 @@ public class GameManager : MonoBehaviour {
         }
         int foodNum = getScoredFoodItems();
         float timeMultiplier = Mathf.Log(timeLeft + 1); //so the score is always positive
-        int finalScore = (int)(foodNum * timeMultiplier * 1000) * 10; //so it always ends in a 0
+        int finalScore = (int)(foodNum * timeMultiplier * 100) * 10; //so it always ends in a 0
         return finalScore;
     }
 
@@ -153,7 +165,13 @@ public class GameManager : MonoBehaviour {
         if (clientsFed != maxClientsThisLevel) {
             getNewOrder();
         } else {
-            hasWon = true;
+            if (unlimitedMode) {
+                difficulty++;
+                maxClientsThisLevel = 5 + difficulty * 5;
+                setUpPlates();
+            } else {
+                hasWon = true;
+            }
         }
     }
 

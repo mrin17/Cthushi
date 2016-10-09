@@ -13,11 +13,13 @@ Programming
 
 -actual levels and winning them
 -unlimited time mode
+- losing!!!
 
 -add character portraits and have them reference getSatisfaction()
 -fix all depths
 -make intro screen UI (Story / Unlimited)
 -implement sounds and music
+- high score manager (game manager not persistent)
 
 Art
 - 3-5 character portraits
