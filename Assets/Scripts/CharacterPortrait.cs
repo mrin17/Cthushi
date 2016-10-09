@@ -16,7 +16,7 @@ public class CharacterPortrait : MonoBehaviour {
     // Use this for initialization
     void Start () {
         gm = FindObjectOfType<GameManager>();
-        sr = FindObjectOfType<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>();
 	}
 
     void Update() {
@@ -40,11 +40,11 @@ public class CharacterPortrait : MonoBehaviour {
 
     void setSprite() {
         if (currentSatisfaction == 0) {
-            sr.sprite = happyPortraits[currentIndex];
+            //sr.sprite = happyPortraits[currentIndex];
         } else if (currentSatisfaction == 1) {
-            sr.sprite = neutralPortraits[currentIndex];
+            //sr.sprite = neutralPortraits[currentIndex];
         } else {
-            sr.sprite = sadPortraits[currentIndex];
+            //sr.sprite = sadPortraits[currentIndex];
         }
     }
 }
