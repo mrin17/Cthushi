@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour {
         { Ingredient.ginger, new Color(1, 1, 1) }, { Ingredient.wasabi, new Color(1, 1, 1) },
         { Ingredient.soySauce, new Color(231f/255, 114f/255, 134f/255) }, { Ingredient.whiteRice, new Color(1, 1, 1) }, { Ingredient.kelp, new Color(50f/255, 88f/255, 12f/255) }
     };
+    public static Color starWinColor = new Color(240f / 255, 217f / 255, 217f / 255);
+    public static Color starLoseColor = new Color(69f / 255, 69f / 255, 69f / 255);
     public List<Sprite> ingredientsOnPlate;
     public List<AudioClip> musics;
     public GameObject meter;
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour {
     bool unlimitedMode = false;
     bool hasWon = false;
     bool hasLost = false;
+    bool levelComplete = false;
 
     //Scoring------------------------------------------------
     //For easy, medium, hard, and unlimited
@@ -85,9 +88,19 @@ public class GameManager : MonoBehaviour {
         timeSpentOnOrder += Time.deltaTime;
         if (getTimeRemaining() < 0) {
             hasLost = true;
-            //TODO - DO SOMETHING!!
+        }
+        if (!levelComplete && (hasWon || hasLost)) {
+            levelComplete = true;
+            scoreScript.gameObject.SetActive(false);
+            GameObject star = (GameObject) Instantiate(Resources.Load("Star"));
+            if (hasLost) {
+                star.transform.GetChild(0).GetComponent<TextMesh>().text = "You Lost!";
+            }
+            star.transform.GetChild(1).GetComponent<TextMesh>().text = "" + currentScore;
         }
     }
+
+    public bool isLevelComplete() { return levelComplete; }
 
     //SCORING----------------------------------------------------
     //Best satisfaction is 0, 1 is meh, 2 is Bad, 3 is they leave

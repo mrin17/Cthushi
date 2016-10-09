@@ -9,6 +9,8 @@ Andrew, Michael, Nathan, Gilbert
 Programming
 -add cloud puff sprite
 - winning and losing
+- add score requirements???
+- experiment with grabFood when you are shoving food away
 
 -add character portraits and have them reference getSatisfaction()
 -make intro screen UI (Story / Unlimited)

@@ -28,6 +28,9 @@ public class InputManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (gm.isLevelComplete()) {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.Space)) {
             cs.finishPlate();
         }
