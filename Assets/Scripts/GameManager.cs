@@ -8,21 +8,21 @@ public class GameManager : MonoBehaviour {
     //General list of ingredients, this will be the ordering of the ingredients on the counter
     //Can be changed to fit design
     public static List<Ingredient> meats = new List<Ingredient>() { Ingredient.calimari, Ingredient.tuna, Ingredient.shrimp };
-    public static List<Ingredient> condiments = new List<Ingredient>() { Ingredient.ginger, Ingredient.wasabi, Ingredient.soySauce };
-    public static List<Ingredient> rice = new List<Ingredient>() { Ingredient.whiteRice, Ingredient.kelp };
+    public static List<Ingredient> condiments = new List<Ingredient>() { Ingredient.ginger, Ingredient.wasabi };
+    public static List<Ingredient> others = new List<Ingredient>() { Ingredient.soySauce, Ingredient.whiteRice, Ingredient.kelp };
     public static List<Ingredient> indexToIngredient = new List<Ingredient>() {
         Ingredient.calimari, Ingredient.tuna, Ingredient.shrimp,
-        Ingredient.ginger, Ingredient.wasabi, Ingredient.soySauce,
-        Ingredient.whiteRice, Ingredient.kelp };
+        Ingredient.ginger, Ingredient.wasabi,
+        Ingredient.soySauce, Ingredient.whiteRice, Ingredient.kelp };
     public static Dictionary<Ingredient, string> ingredientsToSpriteNames = new Dictionary<Ingredient, string>() {
         { Ingredient.calimari, "Calimari" }, { Ingredient.tuna, "Tuna" }, { Ingredient.shrimp, "Shrimp" },
-        { Ingredient.ginger, "Ginger" }, { Ingredient.wasabi, "Wasabi" }, { Ingredient.soySauce, "SoySauce" },
-        { Ingredient.whiteRice, "Rice" }, { Ingredient.kelp, "Kelp" }
+        { Ingredient.ginger, "Ginger" }, { Ingredient.wasabi, "Wasabi" },
+        { Ingredient.soySauce, "SoySauce" }, { Ingredient.whiteRice, "Rice" }, { Ingredient.kelp, "Kelp" }
     };
     public static Dictionary<Ingredient, Color> ingredientsToColors = new Dictionary<Ingredient, Color>() {
         { Ingredient.calimari, new Color(102f/255, 1f/255, 160f/255) }, { Ingredient.tuna, new Color(165f/255, 183f/255, 187f/255) }, { Ingredient.shrimp, new Color(231f/255, 114f/255, 134f/255) },
-        { Ingredient.ginger, new Color(1, 1, 1) }, { Ingredient.wasabi, new Color(1, 1, 1) }, { Ingredient.soySauce, new Color(231f/255, 114f/255, 134f/255) },
-        { Ingredient.whiteRice, new Color(1, 1, 1) }, { Ingredient.kelp, new Color(50f/255, 88f/255, 12f/255) }
+        { Ingredient.ginger, new Color(1, 1, 1) }, { Ingredient.wasabi, new Color(1, 1, 1) },
+        { Ingredient.soySauce, new Color(231f/255, 114f/255, 134f/255) }, { Ingredient.whiteRice, new Color(1, 1, 1) }, { Ingredient.kelp, new Color(50f/255, 88f/255, 12f/255) }
     };
     public List<Sprite> ingredientsOnPlate;
     public GameObject meter;
@@ -36,10 +36,13 @@ public class GameManager : MonoBehaviour {
     List<Plate> currentPlates;
 
     //Level information------------------------------------
+    //CLIENTS PER LEVEL = 10, 15, 20, 1000000
     int clientsFed = 0;
     int maxClientsThisLevel = 10;
     int difficulty = 1;
     bool unlimitedMode = false;
+    bool hasWon = false;
+    bool hasLost = false;
 
     //Scoring------------------------------------------------
     //For easy, medium, hard, and unlimited
@@ -99,6 +102,7 @@ public class GameManager : MonoBehaviour {
         int score = getScore();
         currentScore += score;
         scoreScript.addScore(score);
+        clientsFed++;
     }
 
     const int INCORRECT_FOOD_SCORE = -500;
@@ -146,7 +150,11 @@ public class GameManager : MonoBehaviour {
 
     public void finishOrder() {
         advancePlates();
-        getNewOrder();
+        if (clientsFed != maxClientsThisLevel) {
+            getNewOrder();
+        } else {
+            hasWon = true;
+        }
     }
 
     //PLATES--------------------------------------------
@@ -157,6 +165,11 @@ public class GameManager : MonoBehaviour {
         }
         GameObject plate = (GameObject)Instantiate(Resources.Load("Plate"));
         currentPlates.Insert(0, plate.GetComponent<Plate>());
+        //dont add extra plates
+        if (clientsFed >= maxClientsThisLevel - 2) {
+            plate.GetComponent<SpriteRenderer>().enabled = false;
+            plate.transform.GetChild(0).gameObject.SetActive(false);
+        }
         if (currentPlates.Count > 4) {
             currentPlates.RemoveAt(4);
         }
@@ -165,10 +178,10 @@ public class GameManager : MonoBehaviour {
     public Plate getCurrentPlate() { return currentPlates[2]; }
 
     //INGREDIENTS--------------------------------------------------
-    public static bool isRice(Ingredient i) { return rice.Contains(i); }
+    public static bool isOther(Ingredient i) { return others.Contains(i); }
     public static bool isMeat(Ingredient i) { return meats.Contains(i); }
     public static bool isCondiment(Ingredient i) { return condiments.Contains(i); }
-    public static Ingredient getRandomRice() { return rice[Random.Range(0, rice.Count)]; }
+    public static Ingredient getRandomOther() { return others[Random.Range(0, others.Count)]; }
     public static Ingredient getRandomMeat() { return meats[Random.Range(0, meats.Count)]; }
     public static Ingredient getRandomCondiment() { return condiments[Random.Range(0, condiments.Count)]; }
 

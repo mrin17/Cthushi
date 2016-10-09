@@ -8,7 +8,7 @@ public class OrderCreator {
     //Level 2: 4-6
     //Level 3: 6-8, etc
 	public static Order getRandomOrder(int difficulty, int numClientsFed, int maxClients) {
-        int numIngredients = difficulty * 2 + (int) (numClientsFed / maxClients * 2) + Random.Range(0, 1);
+        int numIngredients = difficulty * 2 + (int) (numClientsFed * 1.0f / maxClients * 2) + Random.Range(0, 2);
         List<Ingredient> ingredients = new List<Ingredient>();
 
         //Add a random ingredient for each numIngredient
