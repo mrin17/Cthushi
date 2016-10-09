@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour {
             }
             GameObject star = (GameObject)Instantiate(Resources.Load("Star"));
             if (currentScore > highScore) {
-                star.transform.GetChild(1).GetComponent<TextMesh>().text = "New High Score:";
+                star.transform.GetChild(2).GetComponent<TextMesh>().text = "New High Score:";
                 if (scoreAndDifficulty.getUnlimitedMode()) {
                     scoreAndDifficulty.setHighScore(3, currentScore);
                 } else {
