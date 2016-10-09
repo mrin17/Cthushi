@@ -9,6 +9,7 @@ public class BodyPart : MonoBehaviour {
     GameObject foodHolding;
     GameManager gm;
     CthulhuScript cs;
+    SoundHandler sh;
     public float GRAB_TIME = .5f;
     public float DROP_ON_PLATE_TIME = .5f;
     public float THROW_AWAY_TIME = .5f;
@@ -21,6 +22,7 @@ public class BodyPart : MonoBehaviour {
 	void Start () {
         gm = FindObjectOfType<GameManager>();
         cs = FindObjectOfType<CthulhuScript>();
+        sh = FindObjectOfType<SoundHandler>();
 	}
 	
 	void Update () {
@@ -42,6 +44,7 @@ public class BodyPart : MonoBehaviour {
                         timer = THROW_AWAY_TIME;
                     }
                     gm.anims[index].SetBool("ButtonPressed?", true);
+                    sh.PlaySound("grab");
                     foodHolding = (GameObject)Instantiate(Resources.Load("food"), transform.position + new Vector3(0, .5f, 0), Quaternion.identity);
                     foodHolding.GetComponent<SpriteRenderer>().sprite = gm.ingredientsOnPlate[index];
                     foodHolding.GetComponent<Food>().moveTowardsLocation(gm.getCurrentPlate().getNextPositionToMoveTowards(GameManager.indexToIngredient[index]));
