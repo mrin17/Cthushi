@@ -5,10 +5,10 @@ public class Plate : MonoBehaviour {
 
     enum PlateState { spawn, queue, center, outTheDoor };
 
-    Vector3 spawnPosition = new Vector3(-6, -3, 0);
-    Vector3 queuePosition = new Vector3(-3, -3, 0);
-    Vector3 centerPosition = new Vector3(0, -3, 0);
-    Vector3 outTheDoorPosition = new Vector3(8, -3, 0);
+    Vector3 spawnPosition = new Vector3(-6, -4.75f, 0);
+    Vector3 queuePosition = new Vector3(-3, -4.75f, 0);
+    Vector3 centerPosition = new Vector3(.9f, -4.75f, 0);
+    Vector3 outTheDoorPosition = new Vector3(8, -4.75f, 0);
     float movementSpeed = .25f;
     float movementSpeedOutDoor = .5f;
     PlateState currentState = PlateState.spawn;
