@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012223714762}
   - 114: {fileID: 114000010735906754}
+  - 114: {fileID: 114000013419645674}
   m_Layer: 0
   m_Name: SoundAndScore
   m_TagString: Untagged
@@ -51,3 +52,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f45232d85cf20946b24610a62487a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000013419645674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012667322628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f733ed8da5eb24b8c30f9b62b2299f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highScores: 00000000000000000000000000000000

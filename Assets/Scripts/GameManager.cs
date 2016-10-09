@@ -42,15 +42,11 @@ public class GameManager : MonoBehaviour {
     //CLIENTS PER LEVEL = 10, 15, 20
     int clientsFed = 0;
     int maxClientsThisLevel = 10;
-    int difficulty = 1;
-    bool unlimitedMode = false;
     bool hasWon = false;
     bool hasLost = false;
     bool levelComplete = false;
 
     //Scoring------------------------------------------------
-    //For easy, medium, hard, and unlimited
-    public List<int> highScores = new List<int>() { 0, 0, 0, 0 };
     int currentScore = 0;
     //ALGORITHM
     // - Under NUM_FOOD_ITEMS * SECONDS_PER_FOOD_ITEM seconds = Great
@@ -61,17 +57,19 @@ public class GameManager : MonoBehaviour {
     const int SECONDS_PER_FOOD_ITEM = 1;
     float timeSpentOnOrder = 0;
 
+    ScoreAndDifficulty scoreAndDifficulty;
 
     void Start()
     {
         //DontDestroyOnLoad(this);
+        scoreAndDifficulty = FindObjectOfType<ScoreAndDifficulty>();
         setUpPlates();
         scoreScript = FindObjectOfType<Score>();
-        if (unlimitedMode) {
+        if (scoreAndDifficulty.getUnlimitedMode()) {
             GetComponent<AudioSource>().clip = musics[2];
         } else {
-            GetComponent<AudioSource>().clip = musics[difficulty];
-            maxClientsThisLevel = 5 + difficulty * 5;
+            GetComponent<AudioSource>().clip = musics[scoreAndDifficulty.getDifficulty()];
+            maxClientsThisLevel = 5 + scoreAndDifficulty.getDifficulty() * 5;
         }
         GetComponent<AudioSource>().Play();
     }
@@ -92,7 +90,21 @@ public class GameManager : MonoBehaviour {
         if (!levelComplete && (hasWon || hasLost)) {
             levelComplete = true;
             scoreScript.gameObject.SetActive(false);
-            GameObject star = (GameObject) Instantiate(Resources.Load("Star"));
+            int highScore;
+            if (scoreAndDifficulty.getUnlimitedMode()) {
+                highScore = scoreAndDifficulty.getHighScore(3);
+            } else {
+                highScore = scoreAndDifficulty.getHighScore(scoreAndDifficulty.getDifficulty() - 1);
+            }
+            GameObject star = (GameObject)Instantiate(Resources.Load("Star"));
+            if (currentScore > highScore) {
+                star.transform.GetChild(1).GetComponent<TextMesh>().text = "New High Score:";
+                if (scoreAndDifficulty.getUnlimitedMode()) {
+                    scoreAndDifficulty.setHighScore(3, currentScore);
+                } else {
+                    scoreAndDifficulty.setHighScore(scoreAndDifficulty.getDifficulty() - 1, currentScore);
+                }
+            }
             if (hasLost) {
                 star.transform.GetChild(0).GetComponent<TextMesh>().text = "You Lost!";
             }
@@ -147,7 +159,7 @@ public class GameManager : MonoBehaviour {
 
     public void getNewOrder() {
         timeSpentOnOrder = 0;
-        currentOrder = OrderCreator.getRandomOrder(difficulty, clientsFed, maxClientsThisLevel);
+        currentOrder = OrderCreator.getRandomOrder(scoreAndDifficulty.getDifficulty(), clientsFed, maxClientsThisLevel);
         string totalOrder = "Target Order is: ";
         foreach (Ingredient ingredient in currentOrder.getIngredientList()) {
             totalOrder += ingredient + " ";
@@ -182,9 +194,9 @@ public class GameManager : MonoBehaviour {
         if (clientsFed != maxClientsThisLevel) {
             getNewOrder();
         } else {
-            if (unlimitedMode) {
-                difficulty++;
-                maxClientsThisLevel = 5 + difficulty * 5;
+            if (scoreAndDifficulty.getUnlimitedMode()) {
+                scoreAndDifficulty.setDifficulty(scoreAndDifficulty.getDifficulty() + 1);
+                maxClientsThisLevel = 5 + scoreAndDifficulty.getDifficulty() * 5;
                 setUpPlates();
             } else {
                 hasWon = true;
