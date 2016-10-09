@@ -7,7 +7,7 @@ public class SoundHandler : MonoBehaviour {
     Dictionary<string, AudioClip> nameToClip;
     List<AudioSource> sources;
     bool started = false;
-    const float SOUND_VOLUME = .25f;
+    const float SOUND_VOLUME = 1f;
 
     void Start() {
         DontDestroyOnLoad(this);

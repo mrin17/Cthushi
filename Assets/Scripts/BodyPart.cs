@@ -22,7 +22,7 @@ public class BodyPart : MonoBehaviour {
 	void Start () {
         gm = FindObjectOfType<GameManager>();
         cs = FindObjectOfType<CthulhuScript>();
-        sh = FindObjectOfType<SoundHandler>();
+        sh = FindObjectOfType<SoundHandler>();       
 	}
 	
 	void Update () {
@@ -79,12 +79,20 @@ public class BodyPart : MonoBehaviour {
         Ingredient food = GameManager.indexToIngredient[index];
         //gm.anims[index].SetBool("ButtonPressed?", true);
         grabbingCorrectFood = gm.addToOrder(food);
-        if (grabbingCorrectFood)
+        if (grabbingCorrectFood) {
+            if (GameManager.isMeat(food)) {
+                sh.PlaySound("crab");
+            } else if (GameManager.isCondiment(food)) {
+                sh.PlaySound("tofu");
+            } else {
+                sh.PlaySound("rice_white");
+            }
+            for (int y = 0; y < gm.meter.transform.childCount - 1; y++)
             {
-                for (int y = 0; y < gm.meter.transform.childCount - 1; y++)
-                {
-                    gm.meter.transform.GetChild(y).GetComponent<SpriteRenderer>().sprite = gm.meter.transform.GetChild(y + 1).GetComponent<SpriteRenderer>().sprite;
-                }
+                gm.meter.transform.GetChild(y).GetComponent<SpriteRenderer>().sprite = gm.meter.transform.GetChild(y + 1).GetComponent<SpriteRenderer>().sprite;
+            }
+        } else {
+            sh.PlaySound("wrongIngredient");
         }
     }
 

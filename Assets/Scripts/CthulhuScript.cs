@@ -16,12 +16,14 @@ public class CthulhuScript : MonoBehaviour {
     List<BodyPart> tentacles;
     InputManager i;
     GameManager gm;
+    SoundHandler sh;
     bool multipleTentacleMovement = true;
     CState currentState = CState.neutral;
 
     void Start () {
         tentacles = new List<BodyPart>();
         gm = FindObjectOfType<GameManager>();
+        sh = FindObjectOfType<SoundHandler>();
         i = FindObjectOfType<InputManager>();
         for (int x = 0; x < i.items.Count; x++) {
             tentacles.Add(i.items[x]);
@@ -77,6 +79,7 @@ public class CthulhuScript : MonoBehaviour {
             Paddle.SetBool("Space", true);
             timer = CLAP_TIME;
             gm.scorePlate();
+            sh.PlaySound("finished_plate");
         }
     }
 
