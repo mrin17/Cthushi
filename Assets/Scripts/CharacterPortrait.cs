@@ -6,9 +6,12 @@ public class CharacterPortrait : MonoBehaviour {
     public List<Sprite> happyPortraits;
     public List<Sprite> neutralPortraits;
     public List<Sprite> sadPortraits;
+    public List<string> enterSounds;
+    public List<string> sadSounds;
 
     GameManager gm;
     SpriteRenderer sr;
+    SoundHandler sh;
     int currentSatisfaction = 0;
     int currentIndex = 0;
     int lastUsedIndex = -1;
@@ -19,6 +22,7 @@ public class CharacterPortrait : MonoBehaviour {
         started = true;
         gm = FindObjectOfType<GameManager>();
         sr = GetComponent<SpriteRenderer>();
+        sh = FindObjectOfType<SoundHandler>();
 	}
 
     void Update() {
@@ -26,6 +30,7 @@ public class CharacterPortrait : MonoBehaviour {
         if (satisfaction != currentSatisfaction) {
             currentSatisfaction = satisfaction;
             setSprite();
+            sh.PlaySound(sadSounds[currentIndex]);
         }
     }
 	
@@ -38,6 +43,7 @@ public class CharacterPortrait : MonoBehaviour {
         }
         lastUsedIndex = currentIndex;
         setSprite();
+        sh.PlaySound(enterSounds[currentIndex]);
     }
 
     void setSprite() {
