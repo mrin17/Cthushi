@@ -1,9 +1,26 @@
 fileFormatVersion: 2
 guid: 01c3b09cbc665704981f2e45369c99c7
-timeCreated: 1475970901
+timeCreated: 1475972600
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Modular sushi_3
+    21300002: Modular sushi_4
+    21300004: Modular sushi_5
+    21300006: Modular sushi_6
+    21300008: Modular sushi_7
+    21300010: Modular sushi_21
+    21300012: Modular sushi_32
+    21300014: Modular sushi_40
+    21300016: Modular sushi_41
+    21300018: Modular sushi_42
+    21300020: Modular sushi_43
+    21300022: Modular sushi_44
+    21300024: Modular sushi_49
+    21300026: Modular sushi_56
+    21300028: Modular sushi_58
+    21300030: Modular sushi_59
+    21300032: Modular sushi_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,7 +55,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,7 +68,228 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Modular sushi_3
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 922
+        width: 73
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_4
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 922
+        width: 73
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_5
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 922
+        width: 73
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_6
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 922
+        width: 73
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_7
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 948
+        width: 73
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_21
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 823
+        width: 208
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_32
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 720
+        width: 148
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_40
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 619
+        width: 163
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_41
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 657
+        width: 179
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_42
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 539
+        width: 194
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_43
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 541
+        width: 113
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_44
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 525
+        width: 147
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_49
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 435
+        width: 201
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_56
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 333
+        width: 190
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_58
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 211
+        width: 262
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_59
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 153
+        width: 412
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Modular sushi_0
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 922
+        width: 73
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
