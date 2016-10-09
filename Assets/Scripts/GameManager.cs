@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour {
     // - Under NUM_FOOD_ITEMS * SECONDS_PER_FOOD_ITEM * 3 seconds = Bad
     // - Beyond Bad - They leave
     const int MAX_FOOD_ITEMS_TRACKED_FOR_SCORE = 7;
-    const int SECONDS_PER_FOOD_ITEM = 1;
+    const int SECONDS_PER_FOOD_ITEM = 2;
     float timeSpentOnOrder = 0;
     bool freezeTimeSpent = false;
 
@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour {
     //SCORING----------------------------------------------------
     //Best satisfaction is 0, 1 is meh, 2 is Bad, 3 is they leave
     public int getSatisfaction() {
-        return (int) (timeSpentOnOrder / getScoredFoodItems() * SECONDS_PER_FOOD_ITEM);
+        return (int) (timeSpentOnOrder / getScoredFoodItems() * 1 / SECONDS_PER_FOOD_ITEM);
     }
 
     public int getScoredFoodItems() {
@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public float getTimeRemaining() {
-        return getScoredFoodItems() * 3 - timeSpentOnOrder;
+        return getScoredFoodItems() * SECONDS_PER_FOOD_ITEM * 3 - timeSpentOnOrder;
     }
 
     public int getScore() {

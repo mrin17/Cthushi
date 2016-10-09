@@ -12,9 +12,11 @@ public class CharacterPortrait : MonoBehaviour {
     int currentSatisfaction = 0;
     int currentIndex = 0;
     int lastUsedIndex = -1;
+    bool started = false;
 
     // Use this for initialization
     void Start () {
+        started = true;
         gm = FindObjectOfType<GameManager>();
         sr = GetComponent<SpriteRenderer>();
 	}
@@ -39,12 +41,15 @@ public class CharacterPortrait : MonoBehaviour {
     }
 
     void setSprite() {
+        if (!started) {
+            Start();
+        }
         if (currentSatisfaction == 0) {
-            //sr.sprite = happyPortraits[currentIndex];
+            sr.sprite = happyPortraits[currentIndex];
         } else if (currentSatisfaction == 1) {
-            //sr.sprite = neutralPortraits[currentIndex];
+            sr.sprite = neutralPortraits[currentIndex];
         } else {
-            //sr.sprite = sadPortraits[currentIndex];
+            sr.sprite = sadPortraits[currentIndex];
         }
     }
 }

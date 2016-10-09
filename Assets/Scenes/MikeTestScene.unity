@@ -2479,18 +2479,21 @@ MonoBehaviour:
   - {fileID: 21300004, guid: 79ef2a93af796f941bfbd0819fb58d4a, type: 3}
   - {fileID: 21300004, guid: 25960ed4ade58d64597764f0a82ec6c8, type: 3}
   - {fileID: 21300004, guid: 41828043c067a3c4d8896f621b4634b4, type: 3}
+  - {fileID: 21300004, guid: fe11691f9262de549a504d41f4096609, type: 3}
   neutralPortraits:
   - {fileID: 21300000, guid: d9f246f0391192543b48607b489ef244, type: 3}
   - {fileID: 21300000, guid: 34c27b4d6da3f8849aeff16ab768a009, type: 3}
   - {fileID: 21300000, guid: 79ef2a93af796f941bfbd0819fb58d4a, type: 3}
   - {fileID: 21300000, guid: 25960ed4ade58d64597764f0a82ec6c8, type: 3}
   - {fileID: 21300000, guid: 41828043c067a3c4d8896f621b4634b4, type: 3}
+  - {fileID: 21300000, guid: fe11691f9262de549a504d41f4096609, type: 3}
   sadPortraits:
   - {fileID: 21300002, guid: d9f246f0391192543b48607b489ef244, type: 3}
   - {fileID: 21300002, guid: 34c27b4d6da3f8849aeff16ab768a009, type: 3}
   - {fileID: 21300002, guid: 79ef2a93af796f941bfbd0819fb58d4a, type: 3}
   - {fileID: 21300002, guid: 25960ed4ade58d64597764f0a82ec6c8, type: 3}
   - {fileID: 21300002, guid: 41828043c067a3c4d8896f621b4634b4, type: 3}
+  - {fileID: 21300002, guid: fe11691f9262de549a504d41f4096609, type: 3}
 --- !u!4 &1528027752
 Transform:
   m_ObjectHideFlags: 0
