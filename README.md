@@ -7,12 +7,10 @@ Andrew, Michael, Nathan, Gilbert
 
 ###Things we have to do
 Programming
--add cloud puff sprite
-- winning and losing
+- winning and losing, press space to actually continue
 - add score requirements???
-- experiment with grabFood when you are shoving food away
 
--add character portraits and have them reference getSatisfaction()
+-add character portraits and have them usegetSatisfaction()
 -make intro screen UI (Story / Unlimited)
 -implement sounds
 - high score manager (game manager not persistent)
@@ -25,4 +23,4 @@ Art
 - Make a speedy particle (whoosh)
 
 Sound
-- Everything
+- Everything except the music

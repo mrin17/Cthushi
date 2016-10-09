@@ -81,7 +81,7 @@ public class CthulhuScript : MonoBehaviour {
     }
 
     public void grabFood(int whichTentacle) {
-        if (isBusy()) {
+        if (currentState != CState.neutral && currentState != CState.swiping) {
             return;
         }
         if (multipleTentacleMovement) {

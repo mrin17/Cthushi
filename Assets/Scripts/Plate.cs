@@ -14,12 +14,14 @@ public class Plate : MonoBehaviour {
     PlateState currentState = PlateState.spawn;
 
     const float V_INCREMENT = .1f;
+    int numObjectsOnSeaweed = 0;
     List<GameObject> objectsOnPlate;
-
+    GameManager gm;
 
     void Start() {
         objectsOnPlate = new List<GameObject>();
         transform.position = spawnPosition;
+        gm = FindObjectOfType<GameManager>();
     }
 
     void Update() {
@@ -37,7 +39,7 @@ public class Plate : MonoBehaviour {
         } else if (i.Equals(Ingredient.wasabi)) {
             return transform.position + new Vector3(.7f, .2f);
         } else {
-            return transform.position + new Vector3(0, .2f + V_INCREMENT * objectsOnPlate.Count);
+            return transform.position + new Vector3(0, .2f + V_INCREMENT * numObjectsOnSeaweed);
         }
     }
 
@@ -48,8 +50,11 @@ public class Plate : MonoBehaviour {
         obj.transform.position = getNextPositionToMoveTowards(objFood.getIngredient());
         objFood.enabled = false; //so it doesnt move when its not supposed to   
         objFood.GetComponent<SpriteRenderer>().sortingOrder = 6;
-        obj.transform.parent = transform;       
-        objectsOnPlate.Add(obj);        
+        obj.transform.parent = transform;
+        objectsOnPlate.Add(obj);
+        if (!GameManager.isCondiment(objFood.getIngredient())) {
+            numObjectsOnSeaweed++;
+        }
     }
 
     public void CreateSushi() {
@@ -57,11 +62,12 @@ public class Plate : MonoBehaviour {
         int nextSushiLayer = 1;
         const int MAX_SUSHI_LAYERS = 4;
         Color lastcolor = Color.white;
-        GameObject sushi = (GameObject)Instantiate(Resources.Load("sushiRoll"), transform.position + new Vector3(0, .2f, 0), Quaternion.identity);
+        GameObject sushi = (GameObject)Instantiate(Resources.Load("sushiRoll"), transform.position + new Vector3(0, .3f, 0), Quaternion.identity);
         sushi.transform.parent = transform;
+        gm.getCurrentPlate().transform.GetChild(0).gameObject.SetActive(false); //get rid of the seaweed paper
         foreach (GameObject obj in objectsOnPlate) {
             Ingredient i = obj.GetComponent<Food>().getIngredient();
-            if (i.Equals(Ingredient.ginger) || i.Equals(Ingredient.wasabi)) {
+            if (GameManager.isCondiment(i)) {
                 continue;
             } else if (i.Equals(Ingredient.soySauce)) {
                 sushi.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
