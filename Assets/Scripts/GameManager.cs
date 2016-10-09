@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour {
     public GameObject meter;
     Score scoreScript;
     public Animator[] anims;
+    SoundHandler sh;
+    string[] victorys = { "Cthulu_8arms", "Cthulu_Enjoy", "Cthulu_hopeyoulikeit", "Cthulu_just4u", "Cthulu_just4u_2", "Cthulu_madewithlove" };
 
 
     Order currentOrder;
@@ -76,6 +78,7 @@ public class GameManager : MonoBehaviour {
             maxClientsThisLevel = 5 + scoreAndDifficulty.getDifficulty() * 5;
         }
         GetComponent<AudioSource>().Play();
+        sh = FindObjectOfType<SoundHandler>();
     }
 
     void setUpPlates() {
@@ -222,6 +225,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void finishOrder() {
+        sh.PlaySound(victorys[Random.Range(0, 5)]);
         advancePlates();
         if (clientsFed != maxClientsThisLevel) {
             getNewOrder();
@@ -232,6 +236,7 @@ public class GameManager : MonoBehaviour {
                 setUpPlates();
             } else {
                 hasWon = true;
+                sh.PlaySound("level_success");
             }
         }
     }
