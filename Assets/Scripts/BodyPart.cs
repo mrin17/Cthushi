@@ -43,6 +43,7 @@ public class BodyPart : MonoBehaviour {
                     foodHolding = (GameObject)Instantiate(Resources.Load("food"), transform.position + new Vector3(0, .5f, 0), Quaternion.identity);
                     foodHolding.GetComponent<SpriteRenderer>().sprite = gm.ingredientsOnPlate[index];
                     foodHolding.GetComponent<Food>().moveTowardsLocation(gm.getCurrentPlate().getNextPositionToMoveTowards(GameManager.indexToIngredient[index]));
+                    foodHolding.GetComponent<Food>().setIngredient(GameManager.indexToIngredient[index]);
                     break;
                 case State.placing:
                     gm.getCurrentPlate().AddObjectToPlate(foodHolding);

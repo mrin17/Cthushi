@@ -8,7 +8,7 @@ public class Plate : MonoBehaviour {
     Vector3 spawnPosition = new Vector3(-6, -4.75f, 0);
     Vector3 queuePosition = new Vector3(-3, -4.75f, 0);
     Vector3 centerPosition = new Vector3(.9f, -4.75f, 0);
-    Vector3 outTheDoorPosition = new Vector3(8, -4.75f, 0);
+    Vector3 outTheDoorPosition = new Vector3(9, -4.75f, 0);
     float movementSpeed = .25f;
     float movementSpeedOutDoor = .5f;
     PlateState currentState = PlateState.spawn;
@@ -49,6 +49,36 @@ public class Plate : MonoBehaviour {
         objFood.enabled = false; //so it doesnt move when its not supposed to       
         obj.transform.parent = transform;       
         objectsOnPlate.Add(obj);        
+    }
+
+    public void CreateSushi() {
+        //dont use ginger or wasabi
+        int nextSushiLayer = 1;
+        const int MAX_SUSHI_LAYERS = 4;
+        Color lastcolor = Color.white;
+        GameObject sushi = (GameObject)Instantiate(Resources.Load("sushiRoll"), transform.position + new Vector3(0, .2f, 0), Quaternion.identity);
+        sushi.transform.parent = transform;
+        foreach (GameObject obj in objectsOnPlate) {
+            Ingredient i = obj.GetComponent<Food>().getIngredient();
+            Debug.Log(i);
+            if (i.Equals(Ingredient.ginger) || i.Equals(Ingredient.wasabi)) {
+                continue;
+            } else if (i.Equals(Ingredient.soySauce)) {
+                sushi.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+                obj.SetActive(false);
+            } else {
+                lastcolor = GameManager.ingredientsToColors[i];
+                if (nextSushiLayer > MAX_SUSHI_LAYERS) {
+                    continue;
+                }
+                sushi.transform.GetChild(nextSushiLayer).GetComponent<SpriteRenderer>().color = lastcolor;
+                nextSushiLayer++;
+                obj.SetActive(false);
+            }
+        }
+        for (int i = nextSushiLayer; i <= MAX_SUSHI_LAYERS; i++) {
+            sushi.transform.GetChild(i).GetComponent<SpriteRenderer>().color = lastcolor;
+        }
     }
 
     public void ClearPlate() {

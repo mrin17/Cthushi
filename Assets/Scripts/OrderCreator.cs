@@ -14,7 +14,6 @@ public class OrderCreator {
         //Add a random ingredient for each numIngredient
         int possibleIngredients = GameManager.indexToIngredient.Count;
         int lastPickedIngredient = -1;
-        bool containsRice = false;
         bool containsMeat = false;
 
         for (int i = 0; i < numIngredients; i++) {
@@ -25,28 +24,15 @@ public class OrderCreator {
             }
             Ingredient ingredient = GameManager.indexToIngredient[nextIngredient];
             ingredients.Add(ingredient);
-            if (GameManager.isRice(ingredient)) {
-                containsRice = true;
-            }
             if (GameManager.isMeat(ingredient)) {
                 containsMeat = true;
             }
         }
 
-        //TODO - if doesnt contain a rice, add rice (dont overwrite any meat added unless necessary)
         //TODO - if doesnt contain a meat, add meat (dont overwrite any rice added unless necessary)
-        //Only manually override on the last ingredient
-        if (!containsMeat || !containsRice) {
-            for (int i = 0; i < ingredients.Count; i++) {
-                if (!containsMeat && (!GameManager.isRice(ingredients[i]) || i == ingredients.Count - 1)) {
-                    ingredients[i] = GameManager.getRandomMeat();
-                    containsMeat = true;
-                }
-                if (!containsRice && (!GameManager.isMeat(ingredients[i]) || i == ingredients.Count - 1)) {
-                    ingredients[i] = GameManager.getRandomRice();
-                    containsRice = true;
-                }
-            }
+        if (!containsMeat) {
+            ingredients[0] = GameManager.getRandomMeat();
+            containsMeat = true;
         }
 
         return new Order(ingredients);

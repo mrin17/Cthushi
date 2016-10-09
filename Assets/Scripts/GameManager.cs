@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour {
         { Ingredient.ginger, "Ginger" }, { Ingredient.wasabi, "Wasabi" }, { Ingredient.soySauce, "SoySauce" },
         { Ingredient.whiteRice, "Rice" }, { Ingredient.kelp, "Kelp" }
     };
+    public static Dictionary<Ingredient, Color> ingredientsToColors = new Dictionary<Ingredient, Color>() {
+        { Ingredient.calimari, new Color(102, 1, 160) }, { Ingredient.tuna, new Color(165, 183, 187) }, { Ingredient.shrimp, new Color(231, 114, 134) },
+        { Ingredient.ginger, new Color(255, 255, 255) }, { Ingredient.wasabi, new Color(255, 255, 255) }, { Ingredient.soySauce, new Color(231, 114, 134) },
+        { Ingredient.whiteRice, new Color(255, 255, 255) }, { Ingredient.kelp, new Color(50, 88, 12) }
+    };
     public List<Sprite> ingredientsOnPlate;
     public GameObject meter;
     Score scoreScript;
@@ -131,6 +136,7 @@ public class GameManager : MonoBehaviour {
 
     public void finishOrder() {
         scorePlate();
+        getCurrentPlate().CreateSushi();
         advancePlates();
         getNewOrder();
     }
