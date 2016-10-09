@@ -54,8 +54,8 @@ public class GameManager : MonoBehaviour {
     // - Under NUM_FOOD_ITEMS * SECONDS_PER_FOOD_ITEM * 2 seconds = Meh
     // - Under NUM_FOOD_ITEMS * SECONDS_PER_FOOD_ITEM * 3 seconds = Bad
     // - Beyond Bad - They leave
-    const int MAX_FOOD_ITEMS_TRACKED_FOR_SCORE = 5;
-    const float SECONDS_PER_FOOD_ITEM = 1.5f;
+    const int MAX_FOOD_ITEMS_TRACKED_FOR_SCORE = 4;
+    const float SECONDS_PER_FOOD_ITEM = 1f;
     float timeSpentOnOrder = 0;
     bool freezeTimeSpent = false;
 
