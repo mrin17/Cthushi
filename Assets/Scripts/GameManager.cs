@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour {
         { Ingredient.whiteRice, "Rice" }, { Ingredient.kelp, "Kelp" }
     };
     public static Dictionary<Ingredient, Color> ingredientsToColors = new Dictionary<Ingredient, Color>() {
-        { Ingredient.calimari, new Color(102, 1, 160) }, { Ingredient.tuna, new Color(165, 183, 187) }, { Ingredient.shrimp, new Color(231, 114, 134) },
-        { Ingredient.ginger, new Color(255, 255, 255) }, { Ingredient.wasabi, new Color(255, 255, 255) }, { Ingredient.soySauce, new Color(231, 114, 134) },
-        { Ingredient.whiteRice, new Color(255, 255, 255) }, { Ingredient.kelp, new Color(50, 88, 12) }
+        { Ingredient.calimari, new Color(102f/255, 1f/255, 160f/255) }, { Ingredient.tuna, new Color(165f/255, 183f/255, 187f/255) }, { Ingredient.shrimp, new Color(231f/255, 114f/255, 134f/255) },
+        { Ingredient.ginger, new Color(1, 1, 1) }, { Ingredient.wasabi, new Color(1, 1, 1) }, { Ingredient.soySauce, new Color(231f/255, 114f/255, 134f/255) },
+        { Ingredient.whiteRice, new Color(1, 1, 1) }, { Ingredient.kelp, new Color(50f/255, 88f/255, 12f/255) }
     };
     public List<Sprite> ingredientsOnPlate;
     public GameObject meter;

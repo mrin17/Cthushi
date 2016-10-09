@@ -60,7 +60,6 @@ public class Plate : MonoBehaviour {
         sushi.transform.parent = transform;
         foreach (GameObject obj in objectsOnPlate) {
             Ingredient i = obj.GetComponent<Food>().getIngredient();
-            Debug.Log(i);
             if (i.Equals(Ingredient.ginger) || i.Equals(Ingredient.wasabi)) {
                 continue;
             } else if (i.Equals(Ingredient.soySauce)) {
