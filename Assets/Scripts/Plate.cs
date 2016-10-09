@@ -46,7 +46,8 @@ public class Plate : MonoBehaviour {
         Food objFood = obj.GetComponent<Food>();
         obj.transform.localScale = new Vector3(.5f, .5f, 1);
         obj.transform.position = getNextPositionToMoveTowards(objFood.getIngredient());
-        objFood.enabled = false; //so it doesnt move when its not supposed to       
+        objFood.enabled = false; //so it doesnt move when its not supposed to   
+        objFood.GetComponent<SpriteRenderer>().sortingOrder = 6;
         obj.transform.parent = transform;       
         objectsOnPlate.Add(obj);        
     }

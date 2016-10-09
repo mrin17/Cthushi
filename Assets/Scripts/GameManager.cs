@@ -83,6 +83,10 @@ public class GameManager : MonoBehaviour {
 
     void Update() {
         timeSpentOnOrder += Time.deltaTime;
+        if (getTimeRemaining() < 0) {
+            hasLost = true;
+            //TODO - DO SOMETHING!!
+        }
     }
 
     //SCORING----------------------------------------------------
