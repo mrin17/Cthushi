@@ -7,18 +7,12 @@ Andrew, Michael, Nathan, Gilbert
 
 ###Things we have to do
 Programming
--Knife and Paddle animations and add to scene (keep arms extended for a time)
 -add cloud puff sprite
--time the (make sushi animation)
-
--actual levels and winning them
--unlimited time mode
-- losing!!!
+- winning and losing
 
 -add character portraits and have them reference getSatisfaction()
--fix all depths
 -make intro screen UI (Story / Unlimited)
--implement sounds and music
+-implement sounds
 - high score manager (game manager not persistent)
 
 Art
