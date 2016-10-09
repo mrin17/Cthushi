@@ -39,7 +39,7 @@ public class TitleScreen : MonoBehaviour {
                 sh.GetComponent<AudioSource>().Stop();
                 sd.setDifficulty(1);
                 sd.setUnlimitedMode(true);
-                SceneManager.LoadScene("MikeTestScene");
+                SceneManager.LoadScene("Level");
             }
         }
         if (SceneManager.GetActiveScene().name == "Cutscene2")
