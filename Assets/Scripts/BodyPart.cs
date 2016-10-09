@@ -8,6 +8,7 @@ public class BodyPart : MonoBehaviour {
     public int index;
     GameObject foodHolding;
     GameManager gm;
+    CthulhuScript cs;
     public float GRAB_TIME = .5f;
     public float DROP_ON_PLATE_TIME = .5f;
     public float THROW_AWAY_TIME = .5f;
@@ -19,6 +20,7 @@ public class BodyPart : MonoBehaviour {
 
 	void Start () {
         gm = FindObjectOfType<GameManager>();
+        cs = FindObjectOfType<CthulhuScript>();
 	}
 	
 	void Update () {
@@ -35,6 +37,7 @@ public class BodyPart : MonoBehaviour {
                         currentState = State.placing;
                         timer = DROP_ON_PLATE_TIME;
                     } else {
+                        cs.beginSwiping();
                         currentState = State.throwing;
                         timer = THROW_AWAY_TIME;
                     }

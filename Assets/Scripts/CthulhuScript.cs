@@ -4,9 +4,10 @@ using System.Collections.Generic;
 //Handles Cthulhu. Gives directions to BodyParts.
 public class CthulhuScript : MonoBehaviour {
 
+    public Animator Knife, Paddle;
     enum CState { neutral, swiping, clapping, waiting, shipping };
     public float SWIPE_TIME = .25f; //time you spend swiping your knife
-    public float CLAP_TIME = .5f; //time you spend before the cloud appears
+    public float CLAP_TIME = .6f; //time you spend before the cloud appears
     public float WAIT_TIME = .5f; //time you spend observing your sushi
     public float SHIP_TIME = .25f; //time you spend before you can make more sushi
     float timer = 0;
@@ -36,9 +37,12 @@ public class CthulhuScript : MonoBehaviour {
         } else {
             switch (currentState) {
                 case CState.swiping:
+                    Knife.SetBool("Hit", false);
                     currentState = CState.neutral;
                     break;
                 case CState.clapping:
+                    Knife.SetBool("Hit", false);
+                    Paddle.SetBool("Space", false);
                     currentState = CState.waiting;
                     timer = WAIT_TIME;
                     //TODO - create cloud and make sushi
@@ -59,6 +63,8 @@ public class CthulhuScript : MonoBehaviour {
     public void finishPlate() {
         if (!isBusy()) {
             currentState = CState.clapping;
+            Knife.SetBool("Hit", true);
+            Paddle.SetBool("Space", true);
             timer = CLAP_TIME;
             gm.scorePlate();
         }
@@ -95,6 +101,7 @@ public class CthulhuScript : MonoBehaviour {
     }
 
     public void beginSwiping() {
+        Knife.SetBool("Hit", true);
         currentState = CState.swiping;
         timer = SWIPE_TIME;
     }

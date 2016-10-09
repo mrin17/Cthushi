@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: 63221a158a79382458f16bb78cef9d73
-timeCreated: 1475961246
+timeCreated: 1475977866
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: CTH knife anim_0
+    21300002: CTH knife anim_1
+    21300004: CTH knife anim_2
+    21300006: CTH knife anim_3
+    21300008: CTH knife anim_4
+    21300010: CTH knife anim_5
+    21300012: CTH knife anim_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -38,7 +45,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,7 +58,98 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: CTH knife anim_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 115
+        width: 420
+        height: 346
+      alignment: 9
+      pivot: {x: 0.65780944, y: 0.708218}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CTH knife anim_1
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 119
+        width: 379
+        height: 345
+      alignment: 9
+      pivot: {x: 0.7661236, y: 0.6837629}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CTH knife anim_2
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 108
+        width: 308
+        height: 367
+      alignment: 9
+      pivot: {x: 0.95845807, y: 0.66489506}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CTH knife anim_3
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 163
+        width: 386
+        height: 332
+      alignment: 9
+      pivot: {x: 0.694107, y: 0.5347198}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CTH knife anim_4
+      rect:
+        serializedVersion: 2
+        x: 1959
+        y: 37
+        width: 420
+        height: 458
+      alignment: 9
+      pivot: {x: 0.6372256, y: 0.7076361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CTH knife anim_5
+      rect:
+        serializedVersion: 2
+        x: 2494
+        y: 37
+        width: 386
+        height: 431
+      alignment: 9
+      pivot: {x: 0.58958757, y: 0.7674467}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: CTH knife anim_6
+      rect:
+        serializedVersion: 2
+        x: 2974
+        y: 75
+        width: 420
+        height: 379
+      alignment: 9
+      pivot: {x: 0.6029192, y: 0.743313}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
